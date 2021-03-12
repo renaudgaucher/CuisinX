@@ -7,10 +7,11 @@
 
 function getContent($args){
     //require("utilities/SQLHandler.php");
-    $id_recette = $_GET['recette'];
-    if (!ctype_digit($id_recette)){
+    
+    if (!isset($_GET['recette']) || !ctype_digit($_GET['recette'])){
         return false;
     }
+    $id_recette = $_GET['recette'];
     $dbh = $args['dbh'];
     $recette = Recette::getRecette($dbh,$id_recette);
     if ($recette===null){
