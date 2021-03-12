@@ -11,7 +11,7 @@ function getContent($args){
     if (!isset($_GET['recette']) || !ctype_digit($_GET['recette'])){
         return false;
     }
-    $id_recette = $_GET['recette']; //Un commentaire
+    $id_recette = $_GET['recette'];
     $dbh = $args['dbh'];
     $recette = Recette::getRecette($dbh,$id_recette);
     if ($recette===null){
