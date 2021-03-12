@@ -80,7 +80,7 @@ class Utilisateur {
         return $sth->execute(array($user->login));
     }
 
-    public function getAmis($dbh,$login){
+    public static function getAmis($dbh,$login){
         $query = "select b.* from utilisateurs as b join amis on amis.login1 = ? and amis.login2 = b.login";
         $sth = $dbh->prepare($query);
         $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
@@ -154,9 +154,9 @@ class Recette{
     }
     
     public function autoHtmlspecialchars(){
-        $nom_plat = htmlspecialchars($nom_plat);
-        $createur = htmlspecialchars($createur);
-        $consigne = htmlspecialchars($consigne);        
+        $this->$nom_plat = htmlspecialchars($this->$nom_plat);
+        $this->$createur = htmlspecialchars($this->$createur);
+        $this->$consigne = htmlspecialchars($this->$consigne);        
     }    
 }
 

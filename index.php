@@ -78,9 +78,6 @@
 <main id='content'> 
     <?php require("content/content_$pageName.php");
     $result = getContent($args);
-    if ($result===false){
-        generateContent('Error','Error');
-    }
     ?>
 </main>
 

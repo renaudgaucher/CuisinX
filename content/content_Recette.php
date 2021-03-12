@@ -15,20 +15,20 @@ function getContent($args){
     $dbh = $args['dbh'];
     $recette = Recette::getRecette($dbh,$id_recette);
     if ($recette===null){
-        return void;
+        return false;
     }
-    $recette->autoHtmlspecialchars();
+    //$recette->autoHtmlspecialchars();
     ?>
     <div class="jumbotron">
-        <h1 class="display-4"> <?php $recette->nom_plat ?></h1>
+        <h1 class="display-4"> <?php echo "$recette->nom_plat" ?></h1>
         <hr class="my-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 offset-md-2">
-                    <p> Temps de cuisson : <?php $recette->temps_cuisson?></p>
+                    <p> Temps de cuisson : <?php echo "$recette->temps_cuisson" ?></p>
                 </div>
                 <div class="col-md-3 offset-md-2">
-                    <p> Temps de préparation : <?php $recette->temps_preparation?></p>
+                    <p> Temps de préparation : <?php echo "$recette->temps_preparation" ?></p>
                 </div>
             </div>
         </div>
