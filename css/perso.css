@@ -1,0 +1,55 @@
+@import url(http://fonts.googleapis.com/css?family=Nerko+One);
+
+[class*="col-"].gris {
+    background-color: grey;
+    border:solid 1px white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.tem {
+    margin-top: 50px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+
+.categorie {
+    background-color: #ffffc8; 
+    padding-right: 15px; 
+    padding-left: 15px
+}
+
+.citation{
+    border-left: 2px lightcoral solid; 
+    padding-left: 12px
+}
+
+.temoignage {
+    font-family: 'Nerko One', cursive;
+    font-size: x-large;
+}
+
+.essai {
+   color:#ECB94B;
+   background-color:#CDE2F8;
+   font-family: 'monospace';
+   font-size:large;
+   font-weight:bold;
+   font-variant:small-caps
+}
+
+.lignegauche {
+    border-left: 2px solid lightcoral;
+    padding-left: 12px;
+}
+
+main {
+    background-color: #fcfcfc;
+    border-color : #ff0000;
+    margin : auto;
+    height:auto;
+    border-radius: 5px;
+    max-width: 1300px;
+}
