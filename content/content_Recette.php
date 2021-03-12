@@ -34,7 +34,7 @@ function getContent($args){
         </div>
     </div>
     <div> 
-        <p> <?php $recette->consigne?> </p>
+        <p> <?php echo "$recette->consigne" ?> </p>
     </div>
 
     <?php
