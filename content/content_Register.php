@@ -25,7 +25,7 @@ if(isset($_POST["login"]) && $_POST["login"] != "" &&
         if(! isset($_POST['promotion'])){
             $_POST['promotion']=null;
         }
-        $insert = Utilisateur::insererUtilisateur($dbh, $_POST['login'], $_POST['password1'], $_POST['nom'], $_POST['prenom'], $_POST['promotion'], $_POST['naissance'], $_POST['email'], false);
+        $insert = Utilisateur::insererUtilisateur($dbh, $_POST['login'], $_POST['password1'], $_POST['nom'], $_POST['prenom'], $_POST['promotion'], $_POST['naissance'], $_POST['email'], '0');
         $form_values_valid = $insert;
     }
 }
