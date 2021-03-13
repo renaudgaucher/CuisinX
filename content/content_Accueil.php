@@ -19,20 +19,20 @@ function getContent($args){
 
 <div class="container-fluid">
 
-    <div class="cat col-md-auto categorie">
-        <h2 style="font-family: Optima; font-weight: bold; text-align: center; color: #5c3831;">Les catégories :</h2>
+    <div class="cat col-md-auto categorie text-center">
+        <h2 style="font-weight: bold; font-size: 60px; color: #5c3831;">Les catégories :</h2>
         <br>
         <div class="row align-items-center" style="margin:auto; max-width:1000px">
             <div class="col-md-2">
-                <h3 class="botitre" style='text-align:center'>Aspi Ratatouille</h3>
+                <h3>Aspi Ratatouille</h3>
             </div>
 
             <div class="col-md-2 ml-auto">
-                <h3 class="botitre" style='text-align:center'>Cuistot occasionnel</h3>
+                <h3>Cuistot occasionnel</h3>
             </div>
 
             <div class="col-md-2 ml-auto">
-                <h3 class="botitre" style='text-align:center'>J'ai du mal avec les pâtes</h3>
+                <h3>J'ai du mal avec les pâtes</h3>
              </div>
             <div class="w-100"></div>
             <div class="col-md-2">
@@ -48,18 +48,18 @@ function getContent($args){
              </div>
             <div class="w-100"></div>
             <br>
-            <div class="col-md-2 botexte align-items-center text-center">
+            <div class="col-md-2 botexte align-items-center">
                 <p>Si vous cherchez une recette gastronomique c'est par là</p>
                 <a class="btn btn-danger" href="" role="button">>></a>
                 <br>
             </div>
 
-            <div class="col-md-2 ml-auto botexte align-items-center text-center">
+            <div class="col-md-2 ml-auto botexte align-items-center">
                 <p>Si vous voulez une recette simple et qualitative c'est ici</p>
                 <a class="btn btn-warning" href="" role="button">>></a>
             </div>
 
-            <div class="col-md-2 ml-auto botexte align-items-center text-center">
+            <div class="col-md-2 ml-auto botexte align-items-center">
                 <p>Si vous prenez peur devant une casserole, cette catégorie est pour vous</p>
                 <a class="btn btn-success" href="" role="button">>></a>
             </div>
