@@ -1,4 +1,5 @@
 <?php
+/*
 class Database {
     public static function connect() {
         $dsn = 'mysql:dbname=cuisinx;host=127.0.0.1';
@@ -258,5 +259,6 @@ class Difficulte{
         }
     }
 }
+*/
 ?>
 

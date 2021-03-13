@@ -66,7 +66,7 @@ function getContent($args){
                     <?php
                     echo "<ul>";
                     foreach($recette->liste_ingredient as $ingredient) {
-                            echo "<li>$ingredient->quantite $ingredient->unité $ingredient->nom_ingredient</li>";
+                            echo "<li>$ingredient->quantite $ingredient->unite $ingredient->nom_ingredient</li>";
                     }
 
                     echo "</ul>";
