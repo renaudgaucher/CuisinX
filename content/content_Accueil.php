@@ -19,28 +19,39 @@ function getContent($args){
 
 <div class="container-fluid">
 
-    <div class="cat col-md-auto categorie">
-        <h2>Les catégories :</h2>
+    <div class="cat col-md-auto categorie" style="background-color: #ffffff;">
+        <h2 style="text-align: center; color: #5c3831;">Les catégories :</h2>
+        <br>
         <div class="row">
             <div class="col-md-2 offset-md-0">
-                <h3>Top Chef</h3>
-                <img src="pictures/photo1.jpg" class="img-fluid" alt="Top Chef">
-                <p>Si vous êtes chauds pour une maxi déter en cuisine, c'est la bonne catégorie</p>
-                <a class="btn btn-secondary" href="https://www.google.com/search?q=%C3%A9clair+au+chocolat&tbm=isch&ved=2ahUKEwj6otqC8qLtAhVJlxoKHcdQAScQ2-cCegQIABAA" role="button">Ne pas appuyer si vous avez faim >></a>
+                <h3>Aspi Ratatouille</h3>
+                <img src="pictures/ratatouille.jpg" class="img-fluid" alt="Ratatouille">
+            </div>
+
+            <div class="col-md-2 offset-md-2"">
+                <h3>Cuistot occasionnel</h3>
+                <img src="pictures/cuistot.jpg" class="img-fluid" alt="Cuistot" style="width:6000 px">
             </div>
 
             <div class="col-md-2 offset-md-2">
-                <h3>Rapide</h3>
-                <img src="pictures/photo2.jpg" class="img-fluid" alt="Sablier">
-                <p>Si vous voulez une recette bonne et rapide, c'est ici</p>
-                <a class="btn btn-danger" href="https://www.google.com/search?q=%C3%A9clair+au+chocolat&tbm=isch&ved=2ahUKEwj6otqC8qLtAhVJlxoKHcdQAScQ2-cCegQIABAA" role="button">En 10 min c'est prêt >></a>
+                <h3>J'ai du mal avec les pâtes</h3>
+                <img src="pictures/raté.jpg" class="img-fluid" alt="Raté">
+             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 offset-md-0">
+                <p>Si vous cherchez une recette gastronomique c'est par là</p>
+                <a class="btn btn-outline-danger" href="" role="button">>></a>
             </div>
 
             <div class="col-md-2 offset-md-2">
-                <h3>Débutant</h3>
-                <img src="pictures/photo3.jpg" class="img-fluid" alt="Débutant">
-                <p>Si vous prenez peur devant une casserole, cette catégorie est pour vous</p>
-                <a class="btn btn-primary" href="https://www.google.com/search?q=%C3%A9clair+au+chocolat&tbm=isch&ved=2ahUKEwj6otqC8qLtAhVJlxoKHcdQAScQ2-cCegQIABAA" role="button">Promis c'est facile >></a>
+                <p>Si vous voulez une recette simple et qualitative c'est ici</p>
+                <a class="btn btn-outline-warning" href="" role="button">>></a>
+            </div>
+
+            <div class="col-md-2 offset-md-2">
+                <p>Si vous prenez peur devant une casserole d'eau bouillante, cette catégorie est pour vous</p>
+                <a class="btn btn-outline-success" href="" role="button">>></a>
             </div>
         </div>
     </div>
