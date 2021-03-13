@@ -15,7 +15,7 @@ if(isset($_POST["id"]) && ctype_digit($_POST["id"]) &&
         isset($_POST["type_plat"]) && $_POST["type_plat"] != ""){
     
     
-    $recette=Recette::getRecette($dbh, $_POST["id"]);
+    $recette=Recette::getRecette($dbh, $_POST["id"]);  //Inutile
     if($user!==null){
         echo "login invalide";
     }
@@ -33,7 +33,7 @@ if(isset($_POST["id"]) && ctype_digit($_POST["id"]) &&
  
 if (!$form_values_valid) {
   // code du formulaire
-    //on teste si les champs étaint définis
+    //on teste si les champs étaient définis
     if (isset($_POST["prenom"])) $prenom = htmlspecialchars($_POST["prenom"]);
     else $prenom = "";
     if (isset($_POST["nom"])) $nom = htmlspecialchars($_POST["nom"]);
