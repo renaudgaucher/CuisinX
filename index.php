@@ -67,9 +67,6 @@
 <nav id='menu'>
     <?php
     generateMenu($pageName,$askedPage);
-    if(getAllowResearchBar($askedPage)){
-        generateResearchBar();
-    }    
     ?>
 </nav>
 

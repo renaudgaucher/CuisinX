@@ -15,7 +15,7 @@ function getContent($args){
     <hr class="my-4">
     <p> Vous êtes ici sur le site de recettes de l'école polytechnique, qui vous donne les meilleures recettes, en lien avec les inventaires Chocapix de vos bars d'étage. Temps de préparation, du niveau J'aiDuMalAvecLesPâtes à JeSuisAspiRatatouille, meat-eater/végé/vegan, on a pensé à tout !</p>
     <div class="cat col-md-auto categorie text-center">
-        <h2 style="font-size: 25px; color: #52a34b">Nos meilleures recettes</h2>
+        <h2 style="font-size: 25px; color: #244b20">Nos meilleures recettes</h2>
         <br>
         <div class="row align-items-center" style="margin:auto; max-width:1000px">
             <a class="col-md-auto" href="index.php?page=Recette1">Carottes rapées</a>
@@ -40,10 +40,10 @@ function getContent($args){
 
 <br>
 
-<div class="container-fluid">
+<div class="shadow p-3 mb-5 rounded" style="background-color:#d9eeda">
 
     <div class="cat col-md-auto categorie text-center">
-        <h2 style="font-weight: bold; font-size: 60px; color: #9c5b4f;">Les catégories :</h2>
+        <h2 style="font-weight: bold; font-size: 60px; color: #a72424;">Les catégories :</h2>
         <br>
         <div class="row align-items-center" style="margin:auto; max-width:1000px">
             <div class="col-md-2">
@@ -71,18 +71,18 @@ function getContent($args){
              </div>
             <div class="w-100"></div>
             <br>
-            <div class="col-md-2 botexte">
-                <a class="btn-block align-items-center" style="color:white" href="">
+            <div class="col-md-2">
+                <a class="btn btn-danger btn-block" style="white-space:normal; color:white" href="">
                     Si vous cherchez une recette gastronomique c'est par là
                 </a>
             </div>
-            <div class="col-md-2 ml-auto botexte">
-                <a class="btn-block align-items-center" style="color:white" href="">
+            <div class="col-md-2 ml-auto">
+                <a class="btn btn-warning btn-block" style="white-space:normal; color:white" href="">
                     Si vous voulez une recette simple et qualitative c'est ici
                 </a>
             </div>
-            <div class="col-md-2 ml-auto botexte">
-                <a class="btn-block align-items-center" style="color:white" href="">
+            <div class="col-md-2 ml-auto">
+                <a class="btn btn-success btn-block" style="white-space:normal; color:white" href="">
                     Si vous prenez peur devant une casserole, cette catégorie est pour vous
                 </a>
             </div>

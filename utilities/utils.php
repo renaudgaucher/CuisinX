@@ -3,52 +3,42 @@ $page_list = [
     'Accueil' => [
         'name' => 'Accueil',
         'title' => "Cuisin'X",
-        'allowResearch'=>false
     ],
     'Error' => [
         'name' => 'Error',
         'title' => 'Erreur',
-        'allowResearch'=>false
     ],
     'Register' => [
         'name' => 'Register',
         'title' => "Créer un compte",
-        'allowResearch'=>false
     ],
     'ChangePassword' => [
         'name' => 'ChangePassword',
         'title' => "Changer votre mot de passe",
-        'allowResearch'=>false
     ],
     'DeleteUser' => [
         'name' => 'DeleteUser',
         'title' => "Supprimer votre compte",
-        'allowResearch'=>false
     ],
     'Login' => [
         'name' => 'Login',
         'title' => "Connectez vous",
-        'allowResearch'=>false
     ],
     'Categorie' => [
         'name' => 'Categorie',
         'title' => "Categorie",
-        'allowResearch'=>false
     ],
     'Recette' => [
         'name' => 'Recette',
         'title' => "Recette",
-        'allowResearch'=>false
     ],
     'AddRecipe' => [
         'name' => 'AddRecipe',
         'title' => "Nouvelle recette",
-        'allowResearch'=>false
     ],
     'Mur' => [
         'name' => 'Mur',
         'title' => "Mur",
-        'allowResearch'=>false
     ]
 ];
 
@@ -71,12 +61,7 @@ function getPageName($page) {
     return $page_list[$page]['name'];
 }
 
-function getAllowResearchBar($page){
-    global $page_list;
-    return $page_list[$page]['allowResearch'];
-}
 function generateMenu($pageName,$askedPage) {
-    
     ?>
 
 <nav class="navbar navbar-expand-xxl navbar-light bg-light">
@@ -92,33 +77,31 @@ function generateMenu($pageName,$askedPage) {
         Cuisin'X
     </a>
 
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-3" type="search" placeholder="Recherche une recette" aria-label="Recherche">
+    <form class="form-inline my-2 my-lg-0" action="utilities/researchBar.php" method="get">
+      <input class="form-control mr-sm-3" type="text" placeholder="Recherche une recette" aria-label="Recherche" required>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Miam</button>
     </form>
 
     <div class="col-md-3">
         <?php 
-        if (!$_SESSION['loggedIn']){
+        if (!$_SESSION["loggedIn"]){
         ?>
             <a class="nav-link bo" href="index.php?page=Register">Créer un compte</a>
         <?php
         }
         else{
         ?>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?page=Profil"><?php echo htmlspecialchars($_SESSION['prenom']);?></a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?page=ChangePassword">Changer mon mot de passe</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?page=DeleteUser">Supprimer mon compte</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?page=AddRecipe">Ajouter une recette</a>
-            </li>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" style="color:black; font-family:Optima" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php echo htmlspecialchars($_SESSION['login']);?>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="index.php?page=ChangePassword">Changer mon mot de passe</a>
+                    <a class="dropdown-item" href="index.php?page=DeleteUser">Supprimer mon compte</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="index.php?page=AddRecipe">Ajouter une recette</a>
+                </div>
+            </div>
         <?php
         }
 ?>
