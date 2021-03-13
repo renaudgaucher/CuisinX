@@ -48,19 +48,28 @@
 }
 
 
+.botexte{
+    background-color: #faf3f2;
+    border-color: #9c5b4f;
+    border-width: 4px;
+    border-style:dotted;
+}
+
 .jumbotron{
     background-color: #faf3f2;
     border-color: #9c5b4f;
-    border-width: 8px;
-    border-style:dotted;
+    border-width: 4px;
+    border-style: groove;
+    border-radius: 10px;
 }
+
 
 main {
     font-family:'Optima';
     background-color: #fcedeb;
     border-color : #EC9785;
     margin : auto;
-    height:auto;
+    height: auto;
     border-radius: 5px;
-    max-width: 1300px;
+    max-width: 80%;
 }
