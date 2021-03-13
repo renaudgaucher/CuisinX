@@ -18,8 +18,6 @@
     padding-left: 15px;
 }
 
-
-
 .categorie {
     padding-right: 15px; 
     padding-left: 15px
@@ -49,16 +47,12 @@
     padding-left: 12px;
 }
 
-.botitre{
-    font-family:'Optima';
-}
 
-.botexte{
-    font-family:'Optima';
+.jumbotron{
     background-color: #faf3f2;
     border-color: #9c5b4f;
-    border-width: 10px;
-    border-style: double;
+    border-width: 8px;
+    border-style:dotted;
 }
 
 main {
