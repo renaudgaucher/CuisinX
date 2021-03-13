@@ -121,7 +121,7 @@ class Recette{
     public $temps_preparation;
     public $liste_ingredient;
     
-    public function __construct(int $id,string $nom_plat,string $createur,string $image,string $consigne,string $difficulte,int $temps_cuisson, int $temps_preparation, array $liste_ingredient){
+    public function __construct(int $id,string $nom_plat,string $createur,string $image,string $consigne,string $difficulte,int $temps_cuisson, int $temps_preparation){
         $this->id = $id;
         $this->nom_plat = $nom_plat;
         $this->createur = $createur;
@@ -130,7 +130,7 @@ class Recette{
         $this->difficulte = $difficulte;
         $this->temps_cuisson = $temps_cuisson;
         $this->temps_preparation = $temps_preparation;
-        $this->liste_ingredient =$liste_ingredient;
+        $this->liste_ingredient =[];
     }
     
     public static function getRecette($dbh,$id){
@@ -144,10 +144,15 @@ class Recette{
             if ($recette_li===false){
                 return null;
             }
-            $recette = new Recette(null,$recette_li['nom_plat'],$recette_li['createur'],$recette_li['image'],$recette_li['consigne'],$recette_li['difficulte'],$recette_li['temps_cuisson'],$recette_li['liste_ingredient'],[]);
+            var_dump($recette_li);
+            if ($recette_li['createur']===Null){ $recette_li['createur'] ="";}
+            if ($recette_li['image']===Null){ $recette_li['createur'] ="pictures/photo2.jpg";}
+            if ($recette_li['temps_cuisson']===Null){ $recette_li['temps_cuisson'] =0;}
+            $recette = new Recette($recette_li['id'],$recette_li['nom_plat'],$recette_li['createur'],$recette_li['image'],$recette_li['consigne'],
+                                $recette_li['difficulte'],$recette_li['temps_cuisson'],$recette_li['temps_preparation']);
             $query = "SELECT * FROM ingredient_recette WHERE id_recette=$recette->id";
             $sth->setFetchMode(PDO::FETCH_CLASS, 'Ingredient');
-            $request_succeeded = $sth->execute(array($login));
+            $request_succeeded = $sth->execute();
             if ($request_succeeded){
                 $liste_ingredient = $sth->fetchAll();
                 $sth->closeCursor();
@@ -183,14 +188,6 @@ class Recette{
         $this->$consigne = htmlspecialchars($this->$consigne);        
     }    
 }
-
-class Ingredient{
-    public $nom;
-    public $quantite;
-    public $unite;
-}
-?>
-
 
 class Ingredient{
     public $nom;
