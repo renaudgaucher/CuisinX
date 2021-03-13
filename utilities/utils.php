@@ -3,7 +3,7 @@ $page_list = [
     'Accueil' => [
         'name' => 'Accueil',
         'title' => "Cuisin'X",
-        'allowResearch'=>true
+        'allowResearch'=>false
     ],
     'Error' => [
         'name' => 'Error',
@@ -33,12 +33,12 @@ $page_list = [
     'Categorie' => [
         'name' => 'Categorie',
         'title' => "Categorie",
-        'allowResearch'=>true
+        'allowResearch'=>false
     ],
     'Recette' => [
         'name' => 'Recette',
         'title' => "Recette",
-        'allowResearch'=>true
+        'allowResearch'=>false
     ],
     'AddRecipe' => [
         'name' => 'AddRecipe',
@@ -48,7 +48,7 @@ $page_list = [
     'Mur' => [
         'name' => 'Mur',
         'title' => "Mur",
-        'allowResearch'=>true
+        'allowResearch'=>false
     ]
 ];
 
@@ -87,7 +87,42 @@ function generateMenu($pageName,$askedPage) {
         <span class="navbar-toggler-icon"></span>
     </button>
     
-    <a class="navbar-brand" href="index.php?page=Accueil">Cuisin'X</a>
+    <a class="navbar-brand bo" href="index.php?page=Accueil">
+        <img src="pictures/toque.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        Cuisin'X
+    </a>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-3" type="search" placeholder="Recherche une recette" aria-label="Recherche">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Miam</button>
+    </form>
+
+    <div class="col-md-3">
+        <?php 
+        if (!$_SESSION['loggedIn']){
+        ?>
+            <a class="nav-link bo" href="index.php?page=Register">Créer un compte</a>
+        <?php
+        }
+        else{
+        ?>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?page=Profil"><?php echo htmlspecialchars($_SESSION['prenom']);?></a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?page=ChangePassword">Changer mon mot de passe</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?page=DeleteUser">Supprimer mon compte</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?page=AddRecipe">Ajouter une recette</a>
+            </li>
+        <?php
+        }
+?>
+    </div>
     
 <?php
     
@@ -106,51 +141,15 @@ function generateMenu($pageName,$askedPage) {
                 <div class="col-md-4">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.php?page=Accueil">Accueil <span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.php?page=Categorie">Categorie <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" style="font-weight:bold" href="index.php?page=Categorie">Catégories<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=Accueil">Vegétarien</a>
+                            <a class="nav-link" href="index.php?page=Accueil">Végétarien</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=Accueil">Noel</a>
+                            <a class="nav-link" href="index.php?page=Accueil">Noël</a>
                         </li>
                     </ul>
-                </div>
-                <div class="col-md-4">
-<?php 
-if (!$_SESSION['loggedIn']){
-?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=Register">Créer un compte</a>
-                    </li>
-<?php
-}
-else{
-
-?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=Profil"><?php echo htmlspecialchars($_SESSION['prenom']);?></a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=ChangePassword">Changer mon mot de passe</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=DeleteUser">Supprimer mon compte</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=AddRecipe">Ajouter une recette</a>
-                    </li>
-<?php
-}
-?>
                 </div>
             </div>
         </div>

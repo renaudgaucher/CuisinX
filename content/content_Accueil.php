@@ -9,18 +9,41 @@ function getContent($args){
 ?>    
 
 
-<div class="jumbotron">
-    <h1 class="display-4">Bienvenue sur Cuisin'X</h1>
+<div class="jumbotron shadow p-3 mb-5 rounded">
+    <h1 class="display-4 text-center" style="font-weight: bold; color: #244b20">Bienvenue sur Cuisin'X</h1>
     <p class="lead">En panne d'inspi pour le diner de ce soir ? C'est dimanche et le magnan est fermé ? On est là pour vous sauver !</p>
     <hr class="my-4">
     <p> Vous êtes ici sur le site de recettes de l'école polytechnique, qui vous donne les meilleures recettes, en lien avec les inventaires Chocapix de vos bars d'étage. Temps de préparation, du niveau J'aiDuMalAvecLesPâtes à JeSuisAspiRatatouille, meat-eater/végé/vegan, on a pensé à tout !</p>
-    <a class="btn btn-primary btn-lg" href="index.php?page=Accueil" role="button">Bouton bientôt utile</a>
+    <div class="cat col-md-auto categorie text-center">
+        <h2 style="font-size: 25px; color: #52a34b">Nos meilleures recettes</h2>
+        <br>
+        <div class="row align-items-center" style="margin:auto; max-width:1000px">
+            <a class="col-md-auto" href="index.php?page=Recette1">Carottes rapées</a>
+            <a class="col-md-auto ml-auto" href="index.php?page=Recette2">Muffin chou pomme</a>
+            <a class="col-md-auto ml-auto" href="index.php?page=Recette3">Fondant chocolat courgette</a>
+            <!-- <div class="w-100"></div>
+            <div class="col-md-2">
+                <img src="pictures/carottes.jpg" class="img-fluid" alt="Carottes rapées">
+            </div>
+
+            <div class="col-md-2 ml-auto">
+                <img src="pictures/muffin.jpg" class="img-fluid" alt="Muffin">
+            </div>
+
+            <div class="col-md-2 ml-auto">
+                <img src="pictures/fondant.jpg" class="img-fluid" alt="Fondant">
+            </div>
+            -->
+        </div>
 </div>
+</div>
+
+<br>
 
 <div class="container-fluid">
 
     <div class="cat col-md-auto categorie text-center">
-        <h2 style="font-weight: bold; font-size: 60px; color: #5c3831;">Les catégories :</h2>
+        <h2 style="font-weight: bold; font-size: 60px; color: #9c5b4f;">Les catégories :</h2>
         <br>
         <div class="row align-items-center" style="margin:auto; max-width:1000px">
             <div class="col-md-2">
@@ -66,6 +89,8 @@ function getContent($args){
             <br>
         </div>
     </div>
+    <br>
+    <br>
 
 </div>
 
