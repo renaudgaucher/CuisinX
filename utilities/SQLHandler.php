@@ -144,13 +144,15 @@ class Recette{
             if ($recette_li===false){
                 return null;
             }
-            var_dump($recette_li);
+            
             if ($recette_li['createur']===Null){ $recette_li['createur'] ="";}
-            if ($recette_li['image']===Null){ $recette_li['createur'] ="pictures/photo2.jpg";}
+            if ($recette_li['image']===Null){ $recette_li['image'] ="pictures/photo2.jpg";}
             if ($recette_li['temps_cuisson']===Null){ $recette_li['temps_cuisson'] =0;}
             $recette = new Recette($recette_li['id'],$recette_li['nom_plat'],$recette_li['createur'],$recette_li['image'],$recette_li['consigne'],
                                 $recette_li['difficulte'],$recette_li['temps_cuisson'],$recette_li['temps_preparation']);
+            
             $query = "SELECT * FROM ingredient_recette WHERE id_recette=$recette->id";
+            $sth = $dbh->prepare($query);
             $sth->setFetchMode(PDO::FETCH_CLASS, 'Ingredient');
             $request_succeeded = $sth->execute();
             if ($request_succeeded){
@@ -190,9 +192,9 @@ class Recette{
 }
 
 class Ingredient{
-    public $nom;
+    public $nom_ingredient;
     public $quantite;
-    public $unite;
+    public $unité;
 }
 ?>
 
