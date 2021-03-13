@@ -1,5 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Nerko+One);
 
+@font-face {
+  font-family: myFont;
+  src: url();
+}
+
 [class*="col-"].gris {
     background-color: grey;
     border:solid 1px white;
@@ -16,7 +21,6 @@
 
 
 .categorie {
-    background-color: #ffffc8; 
     padding-right: 15px; 
     padding-left: 15px
 }
@@ -45,14 +49,16 @@
     padding-left: 12px;
 }
 
+.botitre{
+    font-family:'Optima';
+    text-align: 'center';
+}
 
-/*
 main {
-    background-color: #fcfcfc;
-    border-color : #ff0000;
+    background-color: #ECD5D1;
+    border-color : #EC9785;
     margin : auto;
     height:auto;
     border-radius: 5px;
     max-width: 1300px;
 }
-*/
