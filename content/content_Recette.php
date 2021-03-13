@@ -25,13 +25,29 @@ function getContent($args){
         <div class="container">
             <div class="row">
                 <div class="col-md-3 offset-md-2">
-                    <p> Temps de cuisson : <?php echo "$recette->temps_cuisson" ?></p>
+                    <p> Temps de cuisson : <?php echo "$recette->temps_cuisson" ?> min</p>
                 </div>
                 <div class="col-md-3 offset-md-2">
-                    <p> Temps de préparation : <?php echo "$recette->temps_preparation" ?></p>
+                    <p> Temps de préparation : <?php echo "$recette->temps_preparation" ?> min</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 offset-md-2">
+                    <p> Difficulté : <?php echo "$recette->difficulte" ?> </p>
                 </div>
             </div>
         </div>
+        
+    </div>
+    <div class="jumbotron">
+        <h1 class="display-4"> Ingrédients </h1>
+        <hr class="my-4">
+        <ul>
+            <li> ingrédient 1</li>
+            <li>ingrédient 2 </li>
+        </ul>
+        
+        
     </div>
     <div> 
         <p> <?php echo "$recette->consigne" ?> </p>

@@ -160,5 +160,10 @@ class Recette{
     }    
 }
 
+class Ingredient{
+    public $nom;
+    public $quantite;
+    public $unite;
+}
 ?>
 
