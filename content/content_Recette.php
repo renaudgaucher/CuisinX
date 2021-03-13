@@ -20,12 +20,18 @@ function getContent($args){
     //$recette->autoHtmlspecialchars();
     ?>
     <div class="jumbotron">
-        <div>
-        <h1 class="display-4"> <?php echo "$recette->nom_plat"?>  
-        <img src="<?php echo "$recette->image" ?>" style="width:400px ;";>
-        </h1>
-        <hr class="my-4">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="display-4"> <?php echo "$recette->nom_plat"?> </h1> 
+                </div>
+                <div class="col-md-4 offset-md-2">
+                    <img src="<?php echo "$recette->image" ?>" style="width:400px";>
+                </div>
+            </div>
         </div>
+        <hr class="my-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 offset-md-2">
