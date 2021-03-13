@@ -17,17 +17,19 @@ function getContent($args){
     if ($recette===null){
         return false;
     }
+    //var_dump($recette->image) ;
     //$recette->autoHtmlspecialchars();
     ?>
+    <br>
     <div class="jumbotron">
 
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row align-items-center">
+                <div class="col-md-8">
                     <h1 class="display-4"> <?php echo "$recette->nom_plat"?> </h1> 
                 </div>
-                <div class="col-md-4 offset-md-2">
-                    <img src="<?php echo "$recette->image" ?>" style="width:400px";>
+                <div class="col-md-3 offset-md-1">
+                    <img src="<?php echo "$recette->image" ?>" style="width:200px";>
                 </div>
             </div>
         </div>
@@ -45,29 +47,48 @@ function getContent($args){
                 <div class="col-md-3 offset-md-2">
                     <p> Difficulté : <?php echo "$recette->difficulte" ?> </p>
                 </div>
+                <div class="col-md-3 offset-md-2">
+                    <p> Par <?php echo "$recette->createur" ?> </p>
+                </div>
             </div>
         </div>
         
     </div>
-    <div class="jumbotron">
-        <h1 class="display-4"> Ingrédients </h1>
-        <hr class="my-4">
-        
-        
-        <?php
-        echo "<ul>";
-        foreach($recette->liste_ingredients as $ingredient) {
-                    echo "<li>$ingredient->quantite $ingredient->unite $$ingredient->nom</li>";
-            }
+<div class="jumbotron">
 
-        echo "</ul>";
-        ?>
-        
+        <h1 class="display-4" align="center"> Déroulé de la recette </h1> 
+        <hr class="my-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 ">
+                    <h4 class="display-4" align="center"> Ingrédients </h4>
+                    <br/>
+                    <?php
+                    echo "<ul>";
+                    foreach($recette->liste_ingredient as $ingredient) {
+                            echo "<li>$ingredient->quantite $ingredient->unité $ingredient->nom_ingredient</li>";
+                    }
+
+                    echo "</ul>";
+                    ?>
+                </div>
+                <div class="col-md-7 offset-md-2">
+                    <h4 class="display-4" align="center"> Recette </h4>
+                    <br/>
+                    <?php
+                    $etaperecette = str_replace( "/h" , "<br><br>" , $recette->consigne );
+                    echo "<p>$etaperecette</p>";
+                    ?>
+
+                    
+                </div>
+            </div>
+        </div>
         
     </div>
-    <div> 
-        <p> <?php echo "$recette->consigne" ?> </p>
-    </div>
+    
+    
+    
 
     <?php
 }
