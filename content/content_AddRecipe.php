@@ -38,12 +38,41 @@ if (!$form_values_valid) {
 
 <main>
     <div class="container text-center">
-        <form action="index.php?page=AddRecipe&todo=addRecipe" method=post>
-            <div class="my-1">
-                <input type="text" required name="nom_plat" value="<?php echo $nom_plat ?>" placeholder="Pâtes bolo">
+        <form action="index.php?page=AddRecipe&todo=addRecipe" method="post" enctype="multipart/form-data">
+            <p> <label> Nom de la recette </label> : <input class="form-control" type="text" name="nom" value="<?php echo $nom_plat ?>" />   </p>
+            <p> <label> Photo </label> : <input class="form-control-file" type="file" name="fichier" placeholder="photo.jpg"/> </p>
+            <p> <label> Description </label> :</br>  
+                <textarea class="form-control" name="description"></textarea>
+            </p>
+            <p> <label> Consignes </label> :</br>  
+                <textarea class="form-control" name="consigne"></textarea>
+            </p>
+            <div class="form-group"> <p>Ingrédients</p> 
+                <ul>
+                    <li> <div class="form-row">
+                            <div class="col-md-4 mb-3"><label> ingrédient </label> : <select class="custom-select" name="ing[]"><option></option>
+                                    <?php
+                                    foreach($li_ingredient_dispo as $ingredient_dispo){
+                                        $nom_ingredient_dispo = htmlspecialchars($ingredient_dispo['nom']);
+                                        echo "<option value=$nom_ingredient_dispo> $nom_ingredient_dispo </option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3"><label> quantité </label> : <input class="form-control" type="text" name="q[]"/></div>
+                            <div class="col-md-4 mb-3"><label> unité </label> : <input class="form-control" type="text" name="u[]"/></div>
+                        </div>
+                    </li>
+                    <br>
+                </ul>
+                <input class="btn btn-primary" type = "button" value = "Nouvel ingrédient" id = "ajout">
             </div>
-            <div class="my-1">
-                <select name="difficulte">
+            <br>
+            
+            <div>
+                <label> Difficulte</label> :
+                <select class = "custom-select" name="difficulte">
+                    
                     <?php
                     foreach($li_difficulte_dispo as $difficulte_dispo){
                         $nom_difficulte_dispo = htmlspecialchars($difficulte_dispo['difficulte']);
@@ -52,30 +81,14 @@ if (!$form_values_valid) {
                     ?>
                 </select>
             </div>
-            <div class="my-1">
-                <select name="ingredient">
-                    <?php
-                    foreach($li_ingredient_dispo as $ingredient_dispo){
-                        $nom_ingredient_dispo = htmlspecialchars($ingredient_dispo['nom']);
-                        echo "<option value=$nom_ingredient_dispo> $nom_ingredient_dispo </option>";
-                    }
-                    ?>
-                </select>
-            </div>
-            <div class="my-1">
-                <input type="text" required name="consigne" value="<?php echo $consigne ?>" placeholder="1)mettez les pates au four 2) ajouter de l'eau">
-            </div>
-            <div class="my-1">
-                <input type="text" required name="temps_cuisson" value="<?php echo $temps_cuisson ?>" placeholder="temps cuisson">
-                <label>mn</label>
-            </div>
-            <div class="my-1">
-                <input type="text" required name="temps_preparation" value="<?php echo $temps_preparation ?>" placeholder="temps preparation">
-                <label>mn</label>
-            </div>
+            <p> <label> Temps de cuisson </label> : <input class="form-control" type="int" name="temps_cuisson" value="<?php echo $temps_cuisson ?>" /> mn  </p>
+            <p> <label> Temps de préparation </label> : <input class="form-control" type="int" name="temps_preparation" value="<?php echo $temps_preparation ?>" />  mn </p>
+            <p> <label> Nom de la recette </label> : <input class="form-control" type="text" name="nom" value="<?php echo $nom_plat ?>" />   </p>
+            <div class="form-group"><input class="btn btn-success" type = "submit" id="sub" value = "Création de recette"></div>
         </form>
     </div>
 </main>
+    
 
 <?php
 
