@@ -3,18 +3,18 @@
 
 
 function printLoginLink($askedPage){
-    echo <<<FIN
+    ?>
     <form class="form-inline my-2 my-lg-0" action = "index.php?page=Login" method = "post">
             <div class = "input-group">
                 <button type = "submit" class = "btn btn-success">Connexion</button>
             </div>
     </form>
-FIN;
+<?php
 }
 
 function printLoginForm($askedPage){
     $page = htmlspecialchars($askedPage);
-    echo <<<FIN
+    echo<<<FIN
         <div class="row" style="padding-top:10%">
             <div class="col-md-6 offset-md-3 bg-light">
                 <form class="form-inline" action = "index.php?todo=login&page=$page" method = "post">
@@ -54,7 +54,7 @@ FIN;
 }
 
 function printAccountCreationForm(){
-    echo <<<FIN
+    ?>
 
     <div class="container bg-light py-5 text-center">
         <form action="index.php?page=ChangePassword" method=post
@@ -74,7 +74,7 @@ function printAccountCreationForm(){
         </form>
     </div>
     
-FIN;
+<?php
 }
 
 function printAccountCreationSuccessForm(){
