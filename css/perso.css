@@ -51,11 +51,18 @@
 
 .botitre{
     font-family:'Optima';
-    text-align: 'center';
+}
+
+.botexte{
+    font-family:'Optima';
+    background-color: #faf3f2;
+    border-color: #9c5b4f;
+    border-width: 10px;
+    border-style: double;
 }
 
 main {
-    background-color: #ECD5D1;
+    background-color: #fcedeb;
     border-color : #EC9785;
     margin : auto;
     height:auto;
