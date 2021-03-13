@@ -171,12 +171,12 @@ class Recette{
         }
     }
     
-    public static function insererRecette($dbh, $id, $nom_plat, $createur, $image, $consigne, $difficulte, $temps_cuisson, $temps_preparation,$type_plat) {
+    public static function insererRecette($dbh, $nom_plat, $createur, $image, $consigne, $difficulte, $temps_cuisson, $temps_preparation,$type_plat) {
         if (Recette::getRecette($dbh,$id) !== null){
             return false;
         }
         $sth = $dbh->prepare("INSERT INTO `recettes` (`id`, `nom_plat`, `createur`, `image`, `consigne`, `difficulte`, `temps_cuisson`, `temps_preparation`) VALUES(?,?,?,?,?,?,?,?)");
-        return $sth->execute(array($nom_plat, $createur, $image, $consigne, $difficulte, $temps_cuisson, $temps_preparation,$type_plat));
+        return $sth->execute(array(null,$nom_plat, $createur, $image, $consigne, $difficulte, $temps_cuisson, $temps_preparation));
     }
     
     public static function supprimerRecette($dbh, $recette) {
@@ -195,6 +195,68 @@ class Ingredient{
     public $nom_ingredient;
     public $quantite;
     public $unité;
+    
+    public static function liste_ingredients($dbh){
+        $query = "SELECT * FROM `ingredient`;";
+        $sth = $dbh->prepare($query);
+        $request_succeeded = $sth->execute();
+        if ($request_succeeded){
+            $li_ingredient = $sth->fetchAll();
+            $sth->closeCursor();
+            if ($li_ingredient === false){
+                return null;
+            }
+            return $li_ingredient;
+        }
+        else{
+            return null;
+        }
+    }
+    
+    public static function getIngredient($dbh,$nom){
+        $query = "SELECT * FROM `ingredient` WHERE nom = ?;";
+        $sth = $dbh->prepare($query);
+        $request_succeeded = $sth->execute(array($nom));
+        if ($request_succeeded){
+            $ingredient = $sth->fetch();
+            $sth->closeCursor();
+            if ($ingredient === false){
+                return null;
+            }
+            return $ingredient;
+        }
+        else{
+            return null;
+        }
+    }
+    public static function insererIngredient($dbh, $nom) {
+        if (Ingredient::getIngredient($dbh,$nom) !== null){
+            return false;
+        }
+        $sth = $dbh->prepare("INSERT INTO `ingredient` (`nom`) VALUES(?)");
+        return $sth->execute(array($nom));
+    }
+}
+
+class Difficulte{
+    public $difficulte;
+    
+    public static function liste_difficulte($dbh){
+        $query = "SELECT * FROM `difficulte`;";
+        $sth = $dbh->prepare($query);
+        $request_succeeded = $sth->execute();
+        if ($request_succeeded){
+            $li_difficulte = $sth->fetchAll();
+            $sth->closeCursor();
+            if ($li_difficulte === false){
+                return null;
+            }
+            return $li_difficulte;
+        }
+        else{
+            return null;
+        }
+    }
 }
 ?>
 
