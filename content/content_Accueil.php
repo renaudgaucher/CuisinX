@@ -71,20 +71,20 @@ function getContent($args){
              </div>
             <div class="w-100"></div>
             <br>
-            <div class="col-md-2 botexte align-items-center">
-                <p>Si vous cherchez une recette gastronomique c'est par là</p>
-                <a class="btn btn-danger" href="" role="button">>></a>
-                <br>
+            <div class="col-md-2 botexte">
+                <a class="btn-block align-items-center" style="color:white" href="">
+                    Si vous cherchez une recette gastronomique c'est par là
+                </a>
             </div>
-
-            <div class="col-md-2 ml-auto botexte align-items-center">
-                <p>Si vous voulez une recette simple et qualitative c'est ici</p>
-                <a class="btn btn-warning" href="" role="button">>></a>
+            <div class="col-md-2 ml-auto botexte">
+                <a class="btn-block align-items-center" style="color:white" href="">
+                    Si vous voulez une recette simple et qualitative c'est ici
+                </a>
             </div>
-
-            <div class="col-md-2 ml-auto botexte align-items-center">
-                <p>Si vous prenez peur devant une casserole, cette catégorie est pour vous</p>
-                <a class="btn btn-success" href="" role="button">>></a>
+            <div class="col-md-2 ml-auto botexte">
+                <a class="btn-block align-items-center" style="color:white" href="">
+                    Si vous prenez peur devant une casserole, cette catégorie est pour vous
+                </a>
             </div>
             <br>
         </div>

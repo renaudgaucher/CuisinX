@@ -50,8 +50,9 @@
 
 
 .botexte{
-    background-color: #faf3f2;
-    border-color: #9c5b4f;
+    color: white;
+    background-color: #b94440;
+    border-color: #b94440;
     border-width: 4px;
     border-style:groove;
 }
