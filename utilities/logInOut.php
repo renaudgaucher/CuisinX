@@ -7,6 +7,7 @@ function logIn($dbh){
         if (Utilisateur::testerMdp($dbh, $user, $_POST['password'])){
             $_SESSION['loggedIn']=true;
             $_SESSION['login']=$_POST['login'];
+            $_SESSION['prenom']=$user->prenom;
             return true;
         }
         else{
