@@ -120,6 +120,7 @@ class Recette{
     public $temps_cuisson;
     public $temps_preparation;
     public $type_plat;
+    public $liste_ingredients;
     
     
     public static function getRecette($dbh,$id){

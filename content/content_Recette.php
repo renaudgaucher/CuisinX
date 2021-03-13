@@ -42,10 +42,16 @@ function getContent($args){
     <div class="jumbotron">
         <h1 class="display-4"> Ingrédients </h1>
         <hr class="my-4">
-        <ul>
-            <li> ingrédient 1</li>
-            <li>ingrédient 2 </li>
-        </ul>
+        
+        
+        <?php
+        echo "<ul>";
+        foreach($recette->liste_ingredients as $ingredient) {
+                    echo "<li>$ingredient->quantite $ingredient->unite $$ingredient->nom</li>";
+            }
+
+        echo "</ul>";
+        ?>
         
         
     </div>
