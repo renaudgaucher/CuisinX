@@ -23,7 +23,7 @@ class Difficulte{
         }
     }
     
-    public static function convert_id_to_nomDifficulte($dbh,$id_difficulte){
+    public static function id_to_nomDifficulte($dbh,$id_difficulte){
         $query = "SELECT * FROM `difficulte` WHERE `niveau`= ?;";
         $sth = $dbh->prepare($query);
         $request_succeeded = $sth->execute(array($id_difficulte));
@@ -33,13 +33,13 @@ class Difficulte{
             if ($nom_difficulte === false){
                 return null;
             }
-            return $nom_difficulte;
+            return $nom_difficulte['difficulte'];
         }
         else{
             return null;
         }
     }
-    public static function convert_nomDifficulte_to_id($dbh,$nom_difficulte){
+    public static function nomDifficulte_to_id($dbh,$nom_difficulte){
         $query = "SELECT * FROM `difficulte` WHERE `difficulte`= ?;";
         $sth = $dbh->prepare($query);
         $request_succeeded = $sth->execute(array($nom_difficulte));
@@ -49,7 +49,7 @@ class Difficulte{
             if ($id_difficulte === false){
                 return null;
             }
-            return $nom_difficulte;
+            return $id_difficulte['niveau'];
         }
         else{
             return null;

@@ -1,21 +1,11 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- * Description of Type
- *
- * @author Renaud Gaucher
- */
 class TypePlat {
     public $id_type;
     public $nom;
     
-    public static function convert_id_to_nomTypePlat($dbh,$id_type){
+    public static function id_to_nomTypePlat($dbh,$id_type){
         $query = "SELECT * FROM `type_plat` WHERE `id`= ?;";
         $sth = $dbh->prepare($query);
         $request_succeeded = $sth->execute(array($id_type));
@@ -25,13 +15,13 @@ class TypePlat {
             if ($nom_type === false){
                 return null;
             }
-            return $nom_type;
+            return $nom_type['nom'];
         }
         else{
             return null;
         }
     }
-    public static function convert_nomTypePlat_to_id($dbh,$nom_type){
+    public static function nomTypePlat_to_id($dbh,$nom_type){
         $query = "SELECT * FROM `type_plat` WHERE `nom`= ?;";
         $sth = $dbh->prepare($query);
         $request_succeeded = $sth->execute(array($nom_type));
@@ -41,7 +31,7 @@ class TypePlat {
             if ($id_type === false){
                 return null;
             }
-            return $id_type;
+            return $id_type['id_type'];
         }
         else{
             return null;
