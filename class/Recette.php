@@ -7,6 +7,7 @@ class Recette{
     public $createur;
     public $id_difficulte;
     public $id_contenu;
+    public $id_type;
     public $image;
     public $consigne;
     public $temps_cuisson;
@@ -15,12 +16,13 @@ class Recette{
     public $nb_personne;
     public $liste_ingredient;
     
-    public function __construct(int $id,string $nom_plat,string $createur,string $id_contenu,string $image,string $consigne,string $id_difficulte,int $temps_cuisson, int $temps_preparation, int $nb_personne){
+    public function __construct(int $id,string $nom_plat,string $createur,int $id_contenu,int $id_type,string $image,string $consigne,int $id_difficulte,int $temps_cuisson, int $temps_preparation, int $nb_personne){
         $this->id = $id;
         $this->nom_plat = $nom_plat;
         $this->createur = $createur;
         $this->id_difficulte = $id_difficulte;
         $this->id_contenu = $id_contenu;
+        $this->id_type=$id_type;
         $this->image = $image;
         $this->consigne = $consigne;
         $this->temps_cuisson = $temps_cuisson;
@@ -44,7 +46,7 @@ class Recette{
             if ($recette_li['createur']===Null){ $recette_li['createur'] ="";}
             if ($recette_li['image']===Null){ $recette_li['image'] ="pictures/photo2.jpg";}
             if ($recette_li['temps_cuisson']===Null){ $recette_li['temps_cuisson'] =0;}
-            $recette = new Recette($recette_li['id'],$recette_li['nom_plat'],$recette_li['createur'],$recette_li['id_contenu'],$recette_li['image'],$recette_li['consigne'],
+            $recette = new Recette($recette_li['id'],$recette_li['nom_plat'],$recette_li['createur'],$recette_li['id_contenu'],$recette_li['id_type'],$recette_li['image'],$recette_li['consigne'],
                                 $recette_li['id_difficulte'],$recette_li['temps_cuisson'],$recette_li['temps_preparation'],$recette_li['nb_personne']);
             
             $query = "SELECT * FROM ingredient_recette WHERE id_recette=$recette->id";
@@ -82,7 +84,7 @@ class Recette{
             if ($recette_li['createur']===Null){ $recette_li['createur'] ="";}
             if ($recette_li['image']===Null){ $recette_li['image'] ="pictures/photo2.jpg";}
             if ($recette_li['temps_cuisson']===Null){ $recette_li['temps_cuisson'] =0;}
-            $recette = new Recette($recette_li['id'],$recette_li['nom_plat'],$recette_li['createur'],$recette_li['id_contenu'],$recette_li['image'],$recette_li['consigne'],
+            $recette = new Recette($recette_li['id'],$recette_li['nom_plat'],$recette_li['createur'],$recette_li['id_contenu'],$recette_li['id_type'],$recette_li['image'],$recette_li['consigne'],
                                 $recette_li['id_difficulte'],$recette_li['temps_cuisson'],$recette_li['temps_preparation'],$recette_li['nb_personne']);
             
             $query = "SELECT * FROM ingredient_recette WHERE id_recette=$recette->id";
@@ -135,9 +137,9 @@ class Recette{
         return $li_alea_recette;
     }
     
-    public static function insererRecette($dbh, $nom_plat, $createur,$id_difficulte,$id_contenu, $image, $consigne, $temps_cuisson, $temps_preparation,$description,$nombre_personne) {
-        $sth = $dbh->prepare("INSERT INTO `recettes` (`id`, `nom_plat`, `createur`, `id_difficulte`,`id_contenu`, `image`, `consigne`, `temps_cuisson`, `temps_preparation`,`description`,`nb_personne`) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
-        return $sth->execute(array(null,$nom_plat, $createur,$id_difficulte,$id_contenu, $image, $consigne, $temps_cuisson, $temps_preparation,$description,$nombre_personne));
+    public static function insererRecette($dbh, $nom_plat, $createur,$id_difficulte,$id_contenu,$id_type, $image, $consigne, $temps_cuisson, $temps_preparation,$description,$nombre_personne) {
+        $sth = $dbh->prepare("INSERT INTO `recettes` (`id`, `nom_plat`, `createur`, `id_difficulte`,`id_contenu`, `id_type`, `image`, `consigne`, `temps_cuisson`, `temps_preparation`,`description`,`nb_personne`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+        return $sth->execute(array(null,$nom_plat, $createur,$id_difficulte,$id_contenu,$id_type, $image, $consigne, $temps_cuisson, $temps_preparation,$description,$nombre_personne));
     }
     
     public static function supprimerRecette($dbh, $recette) {
