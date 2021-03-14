@@ -102,6 +102,14 @@ if (!$form_values_valid) {
     <div class="container text-center">
         <form action="index.php?page=AddRecipe&todo=addRecipe" method="post" enctype="multipart/form-data">
             <p> <label> Nom de la recette </label> : <input class="form-control" type="text" name="nom_plat" value="<?php echo $nom_plat ?>" />   </p>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nom de la recette</span>
+                <input class="form-control" type="text" name="nom_plat" value="<?php echo $nom_plat ?>" />
+              </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
             <p> <label> Photo </label> : <input class="form-control-file" type="file" name="photo" placeholder="photo.jpg"/> </p>
             <p> <label> Description </label> :</br>  
                 <textarea class="form-control" name="description"></textarea>
