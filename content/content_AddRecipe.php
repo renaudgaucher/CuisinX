@@ -126,7 +126,7 @@ function getContent($args) {
                     <input type="range" class="range" min="1" max="15" name="nb_personne" value="1"/>
                     <output></output>
 
-                    <div class="jumbotron">
+                    <div class="jumbotron shadow p-3 mb-5 rounded">
                         <div class="form-group"> <p>Ingrédients</p> 
                             <div>
                                 <div  id="add_ingredient">
