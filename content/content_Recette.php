@@ -48,6 +48,12 @@ function getContent($args){
                     <p> Difficulté : <?php echo "$recette->difficulte" ?> </p>
                 </div>
                 <div class="col-md-3 offset-md-2">
+                    <p> Contenu : <?php echo "$recette->contenu" ?> </p>
+                </div>
+                <div class="col-md-3 offset-md-2">
+                    <p> Type : <?php echo "$recette->type_plat" ?> </p>
+                </div>
+                <div class="col-md-3 offset-md-2">
                     <p> Par <?php echo "$recette->createur" ?> </p>
                 </div>
             </div>
