@@ -63,20 +63,25 @@ FIN;
 function printAccountCreationForm(){
     ?>
 
-    <div class="container bg-light py-5 text-center">
-        <form action="index.php?page=ChangePassword" method=post
+    <div class="row align-items-center bg-light py-5 shadow p-3 mb-5 rounded text-center">
+        <div class="col-md-2">
+            <img src="pictures/mdp.jpg" style="width:300px" alt="Cadenas" ?>
+        </div>
+        <form class="col-md-8" action="index.php?page=ChangePassword" method=post
               oninput="up2.setCustomValidity(up2.value != up.value ? 'Les mots de passe diffèrent.' : '')">
             <div>
                 <input type="password" required name="password0" placeholder="Ancien mot de passe">
             </div>
+            <br>
             <div>
                 <input type="password" required name="password1" placeholder="Nouveau mot de passe">
             </div>
             <div class="my-1">
                 <input type="password" name="password2" placeholder="Nouveau mot de passe">
             </div>
+            <br>
             <div class="my-1">
-                <button type = "submit" class = "btn btn-primary">Changer mon mot de passe</button>
+                <button type = "submit" class = "btn btn-outline-success">Changer mon mot de passe</button>
             </div>
         </form>
     </div>
