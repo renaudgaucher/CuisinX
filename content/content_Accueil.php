@@ -57,7 +57,7 @@ $recette3 = Recette::getRecette($dbh,$id_recette3);
 <div class="shadow p-3 mb-5 rounded" style="background-color:#eaf5ea">
 
     <div class="cat col-md-auto categorie text-center">
-        <h2 style="font-weight: bold; font-size: 60px; color: #244b20;">Les catégories :</h2>
+        <h2 style="font-weight: bold; font-size: 60px; color: #244b20;">Les difficultés :</h2>
         <hr class="my-4">
         <div class="row align-items-center" style="margin:auto; max-width:1000px">
             <div class="col-md-2">

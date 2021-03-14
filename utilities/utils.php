@@ -61,7 +61,7 @@ function generateMenu($pageName,$askedPage) {
     if (session_status() != PHP_SESSION_ACTIVE) session_start();
     ?>
 
-<nav class="navbar navbar-expand-xxl navbar-light bg-light">
+    <nav class="navbar navbar-expand-xxl navbar-light bg-light">
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -124,10 +124,33 @@ function generateMenu($pageName,$askedPage) {
                             <a class="nav-link" style="font-weight:bold" href="index.php?page=Categorie">Catégories<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=Accueil">Entrée</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=Accueil">Plat</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=Accueil">Dessert</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=Accueil">Cocktail</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-0">
+                    <ul class="navbar-nav mr-auto">
+                        <br>
+                        <li class="nav-item">
                             <a class="nav-link" href="index.php?page=Accueil">Végétarien</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=Accueil">Noël</a>
+                            <a class="nav-link" href="index.php?page=Accueil">Vegan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=Accueil">Meat-eater</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?page=Accueil">Sans porc</a>
                         </li>
                     </ul>
                 </div>
