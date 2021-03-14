@@ -10,10 +10,10 @@
         $sth->execute(array($_POST["q"],$_POST["q"],$_POST["q"]));
         $nb_resultat = 0;
         while ($element = $sth->fetch(PDO::FETCH_ASSOC)) {
-            echo '<div class="row shadow p-3 mb-5 bg-white rounded">
-                <div class="col-4">
+            echo '<div class="row shadow p-3 mb-5 bg-white rounded align-items-center" style="margin: 3%">
+                <div class="col-4 text-center">
                     <h3>'.htmlspecialchars($element["nom_plat"]).'</h3>
-                    <p> <a href="index.php?page=Recette&recette='.htmlspecialchars($element["id"]).'">Voir plus</a> </p>
+                    <p> <a class="bolien" href="index.php?page=Recette&recette='.htmlspecialchars($element["id"]).'">Voir plus</a> </p>
                 </div>
                 <div class="col-4">
                     <p>'.htmlspecialchars($element["description"]).'</p>
