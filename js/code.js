@@ -12,6 +12,13 @@ $(document).ready(function(){
                     var $set = $(".range").val();
                     $("#disp_nb_personne").html("Nombre de personnes :  "+ $set );
     });
-})
+    $("#btn_create_ingredient").click(function(){
+        
+        var nvlIngredient = $("#create_ingredient").val();
+        $.post("scripts/newIngredient.php",{nom_ingredient:nvlIngredient},function(rep){
+            console.log(nvlIngredient);
+        });
+    });
+});
 
 

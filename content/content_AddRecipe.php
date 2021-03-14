@@ -145,7 +145,13 @@ function getContent($args) {
 
                                 </div>
 
-                                <input class="btn btn-primary" id="nouvel_ingredient" type="button" value="Nouvel ingrédient">
+                                <input class="btn btn-outline-primary" id="nouvel_ingredient" type="button" value="Ingrédient supplémentaire">
+                            </div>
+                            <br> <br>
+                            <div class="input-group" id="nvlIngr">
+                                <span class="input-group-text">Créer un nouvel ingrédient</span>
+                                <input class="form-control" id="create_ingredient"/> 
+                                <button class="btn btn-outline-success" type="button" id="btn_create_ingredient">Créer</button>
                             </div>
                         </div>
                     </div>
