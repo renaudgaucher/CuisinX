@@ -9,21 +9,22 @@
         $dbh = $args['dbh'];
 
         if($id_cat == 1){$bg_color = '#bbfac0';}
-        elseif($id_cat == 1){$bg_color = '#faf0bb';}
+        elseif($id_cat == 2){$bg_color = '#faf0bb';}
         else {$bg_color = '#ffb1af';}
 
-        echo '<br><div class="container jumbotron shadow p-3 mb-5 rounded">';
+        echo "<br><div class='container shadow p-3 mb-5 rounded' style='background-color:$bg_color'>";
         $query = "SELECT * FROM recettes WHERE id_difficulte = $id_cat";
         $sth = $dbh->prepare($query);
-        $sth->execute(array($_POST["q"]));
+        $sth->execute(array($_GET['cat']));
         $nb_resultat = 0;
         while ($element = $sth->fetch(PDO::FETCH_ASSOC)) {
-            echo '<div class="row shadow p-3 mb-5 bg-white rounded">
-                <div class="col-4">
-                    <h3>'.htmlspecialchars($element["nom_plat"]).'</h3>
-                    <p> <a href="index.php?page=Recette&recette='.htmlspecialchars($element["id"]).'">Voir plus</a> </p>
+            echo '<div class="row shadow p-3 mb-5 bg-light rounded" style="margin: 3%">
+                <div class="col-4 text-center">
+                    <h3 style="font-weight:bold">'.htmlspecialchars($element["nom_plat"]).'</h3>
+                    <h4 style="font-style: italic">'.htmlspecialchars(TypePlat::id_to_nomTypePlat($dbh,$element["id_type"])).'</h4>
+                    <p> <a class="bolien" href="index.php?page=Recette&recette='.htmlspecialchars($element["id"]).'">Voir plus</a> </p>
                 </div>
-                <div class="col-4">
+                <div class="col-4 text-center">
                     <p>'.htmlspecialchars($element["description"]).'</p>
                 </div>
                 <div class="col-4">
@@ -35,7 +36,7 @@
             $nb_resultat++;
         }
 
-        echo '<p class="text-right">Il y a'.$nb_resultat.' recette(s) dans cette catégorie.</p>';
+        echo '<p class="text-right">Il y a '.$nb_resultat.' recette(s) dans cette catégorie.</p>';
 
         echo '</div>';
     }

@@ -14,6 +14,7 @@ function getContent($args){
     $id_recette = $_GET['recette'];
     $dbh = $args['dbh'];
     $recette = Recette::getRecette($dbh,$id_recette);
+    
     if ($recette===null){
         return false;
     }
@@ -45,13 +46,14 @@ function getContent($args){
             </div>
             <div class="row">
                 <div class="col-md-3 offset-md-2">
-                    <p> Difficulté : <?php echo "$recette->difficulte" ?> </p>
+                    
+                    <p> Difficulté : <?php echo Difficulte::id_to_nomDifficulte($dbh, ($recette->id_difficulte)); ?> </p>
                 </div>
                 <div class="col-md-3 offset-md-2">
-                    <p> Contenu : <?php echo "$recette->contenu" ?> </p>
+                    <p> Contenu : <?php echo Contenu::id_to_contenu($dbh,$recette->id_contenu); ?> </p>
                 </div>
                 <div class="col-md-3 offset-md-2">
-                    <p> Type : <?php echo "$recette->type_plat" ?> </p>
+                    <p> Type : <?php echo TypePlat::id_to_nomTypePlat($dbh,$recette->id_type) ?> </p>
                 </div>
                 <div class="col-md-3 offset-md-2">
                     <p> Par <?php echo "$recette->createur" ?> </p>

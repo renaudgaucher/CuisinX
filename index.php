@@ -15,12 +15,14 @@
 
     //require & gestion de la BDD
     require('utilities/utils.php');
-
+    
     require("class/Database.php");
     require("class/Utilisateur.php");
     require("class/Ingredient.php");
     require("class/Difficulte.php");
     require("class/Recette.php");
+    require("class/TypePlat.php");
+    require("class/Contenu.php");
     $dbh = Database::connect(); 
     require("utilities/logInOut.php");
     require("utilities/printForms.php");

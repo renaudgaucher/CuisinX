@@ -6,7 +6,7 @@ class Ingredient{
     public $quantite;
     public $unite;
     
-    public static function convert_id_to_nomIngredient($dbh,$id_ingredient){
+    public static function id_to_nomIngredient($dbh,$id_ingredient){
         $query = "SELECT * FROM `ingredient` WHERE `id`= ?;";
         $sth = $dbh->prepare($query);
         $request_succeeded = $sth->execute(array($id_ingredient));
@@ -22,7 +22,7 @@ class Ingredient{
             return null;
         }
     }
-    public static function convert_nomIngredient_to_id($dbh,$nom_ingredient){
+    public static function nomIngredient_to_id($dbh,$nom_ingredient){
         $query = "SELECT * FROM `ingredient` WHERE `nom`= ?;";
         $sth = $dbh->prepare($query);
         $request_succeeded = $sth->execute(array($nom_ingredient));
@@ -49,7 +49,7 @@ class Ingredient{
                 return null;
             }
             foreach($li_ingredient as $ingredient){
-                $ingredient['nom_ingredient'] = convert_id_to_nomIngredient($dbh,$ingredient['id']);
+                $ingredient['nom_ingredient'] = Ingredient::id_to_nomIngredient($dbh,$ingredient['id']);
             }
             return $li_ingredient;
         }
@@ -68,7 +68,7 @@ class Ingredient{
             if ($ingredient === false){
                 return null;
             }
-            $ingredient['nom_ingredient'] = convert_id_to_nomIngredient($dbh,$ingredient['id']);
+            $ingredient['nom_ingredient'] = Ingredient::id_to_nomIngredient($dbh,$ingredient['id']);
             return $ingredient;
         }
         else{
@@ -77,13 +77,13 @@ class Ingredient{
     }
     
     public static function insererIngredientRecette($dbh,$nom_ingredient,$id_recette,$quantite,$unite) {
-        $id_ingredient = convert_nomIngredient_to_id($dbh,$nom_ingredient);
+        $id_ingredient = Ingredient::nomIngredient_to_id($dbh,$nom_ingredient);
         $sth = $dbh->prepare("INSERT INTO `ingredient_recette` (`id_ingredient`,`id_recette`,`quantite`,`unite`) VALUES(?,?,?,?)");
         return $sth->execute(array($id_ingredient,$id_recette,$quantite,$unite));
     }
     
     public static function nouvelIngredient($dbh, $nom) {
-        if (Ingredient::convert_nomIngredient_to_id($dbh,$nom) !== null){
+        if (Ingredient::nomIngredient_to_id($dbh,$nom) !== null){
             return false;
         }
         $sth = $dbh->prepare("INSERT INTO `ingredient` (`id`,`nom`) VALUES(null,?)");
