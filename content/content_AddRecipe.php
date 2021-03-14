@@ -61,7 +61,7 @@ function getContent($args) {
                 // JPEG => type=2
                 if ($type == 2) {
                     $insert = Recette::insererRecette($dbh, $_POST['nom_plat'], $_SESSION['login'],$_POST['difficulte'],$_POST['contenu'],$_POST['type'], null, $_POST['consigne'],
-                                        $_POST['difficulte'], $_POST['temps_cuisson'], $_POST['temps_preparation'], $_POST['nb_personne']);
+                                        $_POST['temps_cuisson'], $_POST['temps_preparation'], $_POST['description'], $_POST['nb_personne']);
                     if ($insert) {
                         $recipe = Recette::getRecetteByName($dbh, $_POST['nom_plat']);
                         if (move_uploaded_file($_FILES['photo']['tmp_name'], "pictures/recette" . $recipe->id . ".jpg")) {
