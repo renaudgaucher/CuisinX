@@ -21,7 +21,7 @@ $recette3 = $li_alea_recette[2];
     <h1 class="display-4 text-center" style="font-weight: bold; color: #244b20">Bienvenue sur Cuisin'X</h1>
     <p class="lead">En panne d'inspi pour le diner de ce soir ? C'est dimanche et le magnan est fermé ? On est là pour vous sauver !</p>
     <hr class="my-4">
-    <p> Vous êtes ici sur le site de recettes de l'école polytechnique, qui vous donne les meilleures recettes, en lien avec les inventaires Chocapix de vos bars d'étage. Temps de préparation, du niveau J'aiDuMalAvecLesPâtes à JeSuisAspiRatatouille, meat-eater/végé/vegan, on a pensé à tout !</p>
+    <p> Vous êtes ici sur le site de recettes de l'école polytechnique, qui vous fournit les meilleures recettes et vous permet de poster les votres ! Temps de préparation, du niveau J'aiDuMalAvecLesPâtes à JeSuisAspiRatatouille, meat-eater/végé/vegan, on a pensé à tout !</p>
     <div class="cat col-md-auto categorie text-center">
         <h2 style="font-size: 25px; color: #244b20">Recettes aléatoires</h2>
         <br>

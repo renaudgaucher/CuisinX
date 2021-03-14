@@ -38,7 +38,10 @@
     }
 
     //$_GET
-    if(isset($_GET["page"])){
+    if(isset($_GET["recherche"])){
+        $askedPage="Research";
+    }
+    elseif(isset($_GET["page"])){
         $askedPage = $_GET['page'];
     }
     else{
