@@ -63,7 +63,7 @@ class Utilisateur {
         return $sth->execute(array($user->login));
     }
 
-    public function getMyRecettes($dbh,$login){
+    public static function getMyRecettes($dbh,$login){
         $query = "SELECT * FROM recettes JOIN utilisateurs ON recettes.createur = utilisateurs.login AND utilisateurs.login = ?";
         $sth = $dbh->prepare($query);
         $request_succeeded = $sth->execute(array($login));
