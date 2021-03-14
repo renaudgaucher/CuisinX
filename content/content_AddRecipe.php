@@ -43,25 +43,24 @@ function getContent($args) {
                 isset($_POST["nb_personne"]) && ctype_digit($_POST["nb_personne"]) &&
                 isset($_POST["contenu"]) && ctype_digit($_POST["contenu"]) &&
                 isset($_POST["type"]) && ctype_digit($_POST["type"]) &&
-                isset($_POST["ingredients"]) && isset($_POST["quantites"]) && isset($_POST["unites"]) &&
-                function() {
+                isset($_POST["ingredients"]) && isset($_POST["quantites"]) && isset($_POST["unites"]))
+                {
             $res = true;
             foreach ($_POST["ingredients"] as $ingredient) {
-                $res = $res & in_array($ingredient, $li_ingredient_dispo);
+                $res = $res && in_array($ingredient, $li_ingredient_dispo);
             }
-            foreach ($_POST["quantite"] as $quantite) {
-                $res = $res & ctype_digit($quantite);
+            foreach ($_POST["quantites"] as $quantite) {
+                $res = $res && ctype_digit($quantite);
             }
-            return $res;
-        }
-        ) {
-            if (!empty($_FILES['photo']['tmp_name']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
+            
+            
+            if ($res && !empty($_FILES['photo']['tmp_name']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
                 // Le fichier a bien été téléchargé
                 // Par sécurité on utilise getimagesize plutot que les variables $_FILES
                 list($larg, $haut, $type, $attr) = getimagesize($_FILES['photo']['tmp_name']);
                 // JPEG => type=2
                 if ($type == 2) {
-                    $insert = Recette::insererRecette($dbh, $_POST['nom_plat'], $_SESSION['login'],$_POST['contenu'],$_POST['type'], null, $_POST['consigne'],
+                    $insert = Recette::insererRecette($dbh, $_POST['nom_plat'], $_SESSION['login'],$_POST['difficulte'],$_POST['contenu'],$_POST['type'], null, $_POST['consigne'],
                                         $_POST['difficulte'], $_POST['temps_cuisson'], $_POST['temps_preparation'], $_POST['nb_personne']);
                     if ($insert) {
                         $recipe = Recette::getRecetteByName($dbh, $_POST['nom_plat']);
@@ -139,7 +138,7 @@ function getContent($args) {
                                                 ?>
                                             </select>
                                         </div>
-                                        <div class="col-md-4 mb-3"><label> Quantité </label> : <input class="form-control" type="text" name="quantites[]"/></div>
+                                        <div class="col-md-4 mb-3"><label> Quantité </label> : <input class="form-control" type="number" name="quantites[]"/></div>
                                         <div class="col-md-4 mb-3"><label> Unité </label> : <input class="form-control" type="text" name="unites[]"/></div>
                                     </div>
 
