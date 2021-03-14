@@ -49,7 +49,9 @@ if (!$form_values_valid) {
 ?>
 
 <main>
-    <div class="py-5 text-center container">
+    <div class="container shadow p-3 mb-5 rounded py-5 bg-light text-center">
+        <h3>Vous pourrez bientôt publier une recette !</h3>
+        <br>
         <form action="index.php?page=Register&todo=register" method=post
               oninput="up2.setCustomValidity(up2.value != up.value ? 'Les mots de passe diffèrent.' : '')">
             <div class="my-1">
