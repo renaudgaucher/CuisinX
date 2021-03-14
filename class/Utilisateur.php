@@ -63,16 +63,6 @@ class Utilisateur {
         return $sth->execute(array($user->login));
     }
 
-    public static function getAmis($dbh,$login){
-        $query = "select b.* from utilisateurs as b join amis on amis.login1 = ? and amis.login2 = b.login";
-        $sth = $dbh->prepare($query);
-        $sth->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
-        $request_succeeded = $sth->execute(array($login));
-        if($request_succeeded){
-            $amis = $sth->fetchAll();
-            return $amis;
-        }
-    }
     public function getMyRecettes($dbh,$login){
         $query = "SELECT * FROM recettes JOIN utilisateurs ON recettes.createur = utilisateurs.login AND utilisateurs.login = ?";
         $sth = $dbh->prepare($query);
