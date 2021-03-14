@@ -12,49 +12,9 @@
     padding-bottom: 15px;
 }
 
-.tem {
-    margin-top: 50px;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-.categorie {
-    padding-right: 15px; 
-    padding-left: 15px
-}
-
-.citation{
-    border-left: 2px lightcoral solid; 
-    padding-left: 12px
-}
-
-.temoignage {
-    font-family: 'Nerko One', cursive;
-    font-size: x-large;
-}
-
-.essai {
-   color:#a72424;
-   background-color:#eaf5ea;
-   font-family: 'monospace';
-   font-size:large;
-   font-weight:bold;
-   font-variant:small-caps
-}
-
-.lignegauche {
-    border-left: 2px solid rgb(67, 121, 65);
-    padding-left: 12px;
-    background-color: #244b20;
-}
-
 
 .botexte{
-    color: white;
-    background-color: #b94440;
-    border-color: #b94440;
-    border-width: 4px;
-    border-style:groove;
+    color: #244b20;
 }
 
 .bo{
