@@ -16,7 +16,7 @@ function printLoginForm($askedPage){
     $page = htmlspecialchars($askedPage);
     echo<<<FIN
         <div class="row" style="padding-top:10%">
-            <div class="col-md-6 shadow p-3 mb-5 rounded offset-md-3 bg-light">
+            <div class="col-md-6 shadow p-3 mb-5 rounded offset-md-3" style="background-color: #d9eeda">
                 <h2 class="text-center">Connecte-toi !</h2>
                 <form class="form-inline" action = "index.php?todo=login&page=$page" method = "post">
                     <div class="input-group">
@@ -37,7 +37,11 @@ function printLoginForm($askedPage){
                     </div>
                     </div>
                 </form>
-            </div>            
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-6 shadow p-3 mb-5 rounded offset-md-3 bg-light text-center">
+                <a href="http://localhost/CuisinX/index.php?page=Register">Pas encore de compte ?</a>
+            </div>         
          </div>        
 FIN;
 }
