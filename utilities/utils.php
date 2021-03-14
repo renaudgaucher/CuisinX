@@ -8,6 +8,10 @@ $page_list = [
         'name' => 'Error',
         'title' => 'Erreur',
     ],
+    'Research' => [
+        'name' => 'Research',
+        'title' => 'Recherche',
+    ],
     'Register' => [
         'name' => 'Register',
         'title' => "Créer un compte",
@@ -73,8 +77,8 @@ function generateMenu($pageName,$askedPage) {
         Cuisin'X
     </a>
 
-    <form class="form-inline my-2 my-lg-0" action="index.php?page=Research" method="post">
-      <input class="form-control mr-sm-3" type="text" placeholder="Recherche une recette" aria-label="Recherche" required>
+    <form class="form-inline my-2 my-lg-0" action="index.php?page=Research" method=post>
+      <input class="form-control mr-sm-3" type="text" placeholder="Recherche une recette" name="q" required>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Miam</button>
     </form>
 
