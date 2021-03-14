@@ -58,7 +58,6 @@ function getPageName($page) {
 }
 
 function generateMenu($pageName,$askedPage) {
-    if (session_status() != PHP_SESSION_ACTIVE) session_start();
     ?>
 
     <nav class="navbar navbar-expand-xxl navbar-light bg-light">
@@ -81,7 +80,8 @@ function generateMenu($pageName,$askedPage) {
 
     <div class="col-md-3">
         <?php 
-        if (!$_SESSION["loggedIn"]){
+        if (session_status() != PHP_SESSION_ACTIVE) session_start();
+        if (!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"]){
         ?>
             <a class="nav-link bo" href="index.php?page=Register">Créer un compte</a>
         <?php

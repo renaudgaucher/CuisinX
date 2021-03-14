@@ -10,17 +10,10 @@ function getContent($args){
 
 <?php
 
-$dbh = $args['dbh'];
-$res = $dbh->prepare("SELECT COUNT(*) FROM `recettes`");
-$res->execute();
-$tab = $res->fetch(PDO::FETCH_NUM) ;
-$nb = $tab[0] ;
-$id_recette1 = rand (1, $nb) ;
-$id_recette2 = (($id_recette1 + 1) % $nb) + 1;
-$id_recette3 = (($id_recette2 + 1) % $nb) + 1;
-$recette1 = Recette::getRecette($dbh,$id_recette1);
-$recette2 = Recette::getRecette($dbh,$id_recette2);
-$recette3 = Recette::getRecette($dbh,$id_recette3);
+$li_alea_recette=Recette::getRecetteAleatoire($dbh, 3);
+$recette1 = $li_alea_recette[0];
+$recette2 = $li_alea_recette[1];
+$recette3 = $li_alea_recette[2];
 
 ?> 
 
