@@ -18,13 +18,13 @@
         $sth->execute(array($_GET['cat']));
         $nb_resultat = 0;
         while ($element = $sth->fetch(PDO::FETCH_ASSOC)) {
-            echo '<div class="row shadow p-3 mb-5 bg-light rounded">
-                <div class="col-4">
-                    <h3>'.htmlspecialchars($element["nom_plat"]).'</h3>
-                    <h1>'.htmlspecialchars($element["type_plat"]).'</h1>
+            echo '<div class="row shadow p-3 mb-5 bg-light rounded" style="margin: 3%">
+                <div class="col-4 text-center">
+                    <h3 style="font-weight:bold">'.htmlspecialchars($element["nom_plat"]).'</h3>
+                    <h4 style="font-style: italic">'.htmlspecialchars(TypePlat::id_to_nomTypePlat($dbh,$element["id_type"])).'</h4>
                     <p> <a class="bolien" href="index.php?page=Recette&recette='.htmlspecialchars($element["id"]).'">Voir plus</a> </p>
                 </div>
-                <div class="col-4">
+                <div class="col-4 text-center">
                     <p>'.htmlspecialchars($element["description"]).'</p>
                 </div>
                 <div class="col-4">
