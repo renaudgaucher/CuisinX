@@ -5,10 +5,17 @@
         $dbh = $args['dbh'];
 
         echo '<br><div class="container jumbotron shadow p-3 mb-5 rounded">
-            <h2></h2>';
-        $query = "SELECT * FROM recettes WHERE nom_plat LIKE CONCAT('%',?,'%') OR consigne LIKE CONCAT('%',?,'%') OR description LIKE CONCAT('%',?,'%')";
+        <h2 class="text-center" style="color: #244b20">
+            Résultats pour : '.htmlspecialchars($_GET["recherche"]).'
+        </h2>';
+        $query = "SELECT recettes.id,recettes.nom_plat, recettes.createur,recettes.id_difficulte,recettes.id_contenu,
+        recettes.id_type,recettes.image,recettes.consigne,recettes.temps_cuisson,recettes.temps_preparation,
+        recettes.description,recettes.nb_personne 
+        FROM recettes, type_plat, contenu WHERE type_plat.id = recettes.id_type AND contenu.id = recettes.id_contenu 
+        AND (recettes.nom_plat LIKE CONCAT('%',?,'%') OR recettes.consigne LIKE CONCAT('%',?,'%') OR recettes.description 
+        LIKE CONCAT('%',?,'%') OR type_plat.nom LIKE CONCAT('%',?,'%') OR contenu.contenu LIKE CONCAT('%',?,'%'))";
         $sth = $dbh->prepare($query);
-        $sth->execute(array($_GET["recherche"],$_GET["recherche"],$_GET["recherche"]));
+        $sth->execute(array($_GET["recherche"],$_GET["recherche"],$_GET["recherche"],$_GET["recherche"],$_GET["recherche"]));
         $nb_resultat = 0;
         while ($element = $sth->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="row shadow p-3 mb-5 bg-white rounded align-items-center" style="margin: 3%">
