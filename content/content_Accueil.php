@@ -30,12 +30,12 @@ $recette3 = Recette::getRecette($dbh,$id_recette3);
     <hr class="my-4">
     <p> Vous êtes ici sur le site de recettes de l'école polytechnique, qui vous donne les meilleures recettes, en lien avec les inventaires Chocapix de vos bars d'étage. Temps de préparation, du niveau J'aiDuMalAvecLesPâtes à JeSuisAspiRatatouille, meat-eater/végé/vegan, on a pensé à tout !</p>
     <div class="cat col-md-auto categorie text-center">
-        <h2 style="font-size: 25px; color: #244b20">Nos meilleures recettes</h2>
+        <h2 style="font-size: 25px; color: #244b20">Recettes aléatoires</h2>
         <br>
         <div class="row align-items-center" style="margin:auto; max-width:1000px">
-            <a class="col-md-auto" href="index.php?page=Recette&recette=1"> <?php echo "$recette1->nom_plat" ?></a>
-            <a class="col-md-auto ml-auto" href="index.php?page=Recette&recette=2"> <?php echo "$recette2->nom_plat" ?></a>
-            <a class="col-md-auto ml-auto" href="index.php?page=Recette&recette=3"> <?php echo "$recette3->nom_plat" ?></a>
+            <a class="col-md-auto bolien" href="index.php?page=Recette&recette=1"> <?php echo "$recette1->nom_plat" ?></a>
+            <a class="col-md-auto ml-auto bolien" href="index.php?page=Recette&recette=2"> <?php echo "$recette2->nom_plat" ?></a>
+            <a class="col-md-auto ml-auto bolien" href="index.php?page=Recette&recette=3"> <?php echo "$recette3->nom_plat" ?></a>
             <div class="w-100"></div>
             <div class="col-md-2">
                 <img src="<?php echo "$recette1->image" ?>" style="width:200px"; class="img-fluid" alt="<?php echo "$recette1->nom_plat" ?>">
@@ -54,11 +54,11 @@ $recette3 = Recette::getRecette($dbh,$id_recette3);
 
 <br>
 
-<div class="shadow p-3 mb-5 rounded" style="background-color:#d9eeda">
+<div class="shadow p-3 mb-5 rounded" style="background-color:#eaf5ea">
 
     <div class="cat col-md-auto categorie text-center">
-        <h2 style="font-weight: bold; font-size: 60px; color: #a72424;">Les catégories :</h2>
-        <br>
+        <h2 style="font-weight: bold; font-size: 60px; color: #244b20;">Les catégories :</h2>
+        <hr class="my-4">
         <div class="row align-items-center" style="margin:auto; max-width:1000px">
             <div class="col-md-2">
                 <h3>Aspi Ratatouille</h3>

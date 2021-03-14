@@ -34,8 +34,8 @@
 }
 
 .essai {
-   color:#ECB94B;
-   background-color:#CDE2F8;
+   color:#a72424;
+   background-color:#eaf5ea;
    font-family: 'monospace';
    font-size:large;
    font-weight:bold;
@@ -60,6 +60,10 @@
 .bo{
     font-family:'Optima';
     color: black;
+}
+
+.bolien{
+    color: rgb(48, 8, 112);
 }
 
 .jumbotron{
