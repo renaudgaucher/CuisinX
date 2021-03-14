@@ -92,3 +92,21 @@ function getContent($args){
 
     <?php
 }
+
+function addIngredient($ingredientNom,$dbh){
+    if (compareWithIngredients($ingredientNom,$dbh)){
+        return;
+    }
+    $sql = "INSERT INTO ingredient(nom) VALUES ('$ingredientNom')";
+    $dbh->exec($sql);
+}
+
+function compareWithIngredients($ingredientNom,$bdd) {
+    $query = $bdd->query("SELECT * FROM ingredient");
+    foreach ($query as $r) {
+        if(strcasecmp($r['ingredientNom'],$ingredientNom)== 0){
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
