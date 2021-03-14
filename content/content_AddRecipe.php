@@ -108,22 +108,22 @@ function getContent($args) {
                 <form action="index.php?page=AddRecipe&todo=addRecipe" method="post" enctype="multipart/form-data">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Nom de la recette</span>
-                        <input class="form-control" type="text" name="nom_plat" value="<?php echo $nom_plat ?>" />
+                        <input class="form-control" type="text" name="nom_plat" value="<?php echo $nom_plat ?>" required/>
                     </div>
 
-                    <p> <label> Photo </label> : <input class="form-control-file" type="file" name="photo" placeholder="photo.jpg"/> </p>
+                    <p> <label> Photo </label> : <input class="form-control-file" type="file" name="photo" placeholder="photo.jpg" required/> </p>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Description</span>
-                        <textarea class="form-control" name="description"></textarea>
+                        <textarea class="form-control" name="description" required></textarea>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Consignes</span>
-                        <textarea class="form-control" name="consigne"></textarea>
+                        <textarea class="form-control" name="consigne" required></textarea>
                     </div>
 
                     <label for="customRange2" class="form-label" id="disp_nb_personne">Nombre de personnes : 1</label>
-                    <input type="range" class="range" min="1" max="15" name="nb_personne" value="1"/>
+                    <input type="range" class="range" min="1" max="15" name="nb_personne" value="1" required/>
                     <output></output>
 
                     <div class="jumbotron shadow p-3 mb-5 rounded">
@@ -131,7 +131,7 @@ function getContent($args) {
                             <div>
                                 <div  id="add_ingredient">
                                     <div class="form-row">
-                                        <div class="col-md-4 mb-3"><label> Ingrédient </label> : <select class="custom-select" name="ingredients[]"><option></option>
+                                        <div class="col-md-4 mb-3"><label> Ingrédient </label> : <select class="custom-select" name="ingredients[]" required><option></option>
                                                 <?php
                                                 foreach ($li_ingredient_dispo as $ingredient_dispo) {
                                                     echo "<option value=$ingredient_dispo> $ingredient_dispo </option>";
@@ -166,7 +166,7 @@ function getContent($args) {
                        
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Difficulté</span>
-                            <select class = "custom-select" name="difficulte">
+                            <select class = "custom-select" name="difficulte" required>
 
                                         <?php
                                         foreach ($li_difficulte_dispo as $difficulte_dispo) {
@@ -182,14 +182,14 @@ function getContent($args) {
                                 <div class="col-sm-5 offset-md-1 ">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Temps de cuisson</span>
-                                        <input class="form-control" type="int" name="temps_cuisson" /> 
+                                        <input class="form-control" type="int" name="temps_cuisson" required/> 
                                         <span class="input-group-text">min</span>
                                     </div>
                                 </div>
                                 <div class="col-sm-5 ">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Temps de préparation</span>
-                                        <input class="form-control" type="int" name="temps_preparation" /> 
+                                        <input class="form-control" type="int" name="temps_preparation" required/> 
                                         <span class="input-group-text">min</span>
                                     </div>
                                 </div>
@@ -199,7 +199,7 @@ function getContent($args) {
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Contenu</span>
-                        <select class = "custom-select" name="contenu">
+                        <select class = "custom-select" name="contenu" required> 
 
                                     <?php
                                     foreach ($li_contenu_dispo as $contenu_dispo) {
@@ -210,7 +210,7 @@ function getContent($args) {
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Type de plat</span>
-                        <select class = "custom-select" name="type">
+                        <select class = "custom-select" name="type" required>
 
                                     <?php
                                     foreach ($li_typePlat_dispo as $typePlat) {
