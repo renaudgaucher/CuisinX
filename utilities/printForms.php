@@ -18,19 +18,21 @@ function printLoginForm($askedPage){
         <div class="row" style="padding-top:10%">
             <div class="col-md-6 shadow p-3 mb-5 rounded offset-md-3" style="background-color: #d9eeda">
                 <h2 class="text-center">Connecte-toi !</h2>
+                <br>
                 <form class="form-inline" action = "index.php?todo=login&page=$page" method = "post">
-                    <div class="input-group">
+                    <div class="input-group" style="margin:auto; max:500px">
                     <div class="container-fluid">
-                        <div class="row" style="padding:10px">
+                        <div class="row">
                             <div class="col-md-5">
                                 <input name = "login" type = "text" class = "form-control" placeholder = "login">
                             </div>
-                            <div class="col-md-5 offset-md-1">
+                            <div class="col-md-5 offset-md-1 ">
                                 <input name = "password" type = "password" class = "form-control" placeholder="mot de passe">
                             </div>
                         </div>
+                        <br>
                         <div class="row">
-                            <div class="col-md-3 offset-md-5" style="padding:5px">
+                            <div class="col-md-3 offset-md-5" >
                                 <button type="submit" class="btn btn-primary">Valider</button>
                             </div>
                         </div>
