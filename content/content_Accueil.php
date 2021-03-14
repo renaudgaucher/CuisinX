@@ -53,34 +53,32 @@ $recette3 = $li_alea_recette[2];
         <h2 style="font-weight: bold; font-size: 60px; color: #244b20;">Les difficultés :</h2>
         <hr class="my-4">
         <div class="row align-items-center" style="margin:auto; max-width:1000px">
-            <div class="col-md-2">
-                <h3>Aspi Ratatouille</h3>
-            </div>
+            <div class="col-md-2 ml-auto">
+                <h3>J'ai du mal avec les pâtes</h3>
+             </div>
 
             <div class="col-md-2 ml-auto">
                 <h3>Cuistot occasionnel</h3>
             </div>
 
-            <div class="col-md-2 ml-auto">
-                <h3>J'ai du mal avec les pâtes</h3>
-             </div>
+             <div class="col-md-2">
+                <h3>Aspi Ratatouille</h3>
+            </div>
             <div class="w-100"></div>
-            <div class="col-md-2">
-                <img src="pictures/ratatouille.jpg" class="img-fluid" alt="Ratatouille">
-            </div>
-
-            <div class="col-md-2 ml-auto">
-                <img src="pictures/cuistot.jpg" class="img-fluid" alt="Cuistot">
-            </div>
-
             <div class="col-md-2 ml-auto">
                 <img src="pictures/raté.jpg" class="img-fluid" alt="Raté">
              </div>
+            <div class="col-md-2 ml-auto">
+                <img src="pictures/cuistot.jpg" class="img-fluid" alt="Cuistot">
+            </div>
+            <div class="col-md-2">
+                <img src="pictures/ratatouille.jpg" class="img-fluid" alt="Ratatouille">
+            </div>
             <div class="w-100"></div>
             <br>
-            <div class="col-md-2">
-                <a class="btn btn-danger btn-block" style="white-space:normal; color:white" href="">
-                    Si vous cherchez une recette gastronomique c'est par là
+            <div class="col-md-2 ml-auto">
+                <a class="btn btn-success btn-block" style="white-space:normal; color:white" href="">
+                    Si vous prenez peur devant une casserole, cette catégorie est pour vous
                 </a>
             </div>
             <div class="col-md-2 ml-auto">
@@ -88,9 +86,9 @@ $recette3 = $li_alea_recette[2];
                     Si vous voulez une recette simple et qualitative c'est ici
                 </a>
             </div>
-            <div class="col-md-2 ml-auto">
-                <a class="btn btn-success btn-block" style="white-space:normal; color:white" href="">
-                    Si vous prenez peur devant une casserole, cette catégorie est pour vous
+            <div class="col-md-2">
+                <a class="btn btn-danger btn-block" style="white-space:normal; color:white" href="">
+                    Si vous cherchez une recette gastronomique c'est par là
                 </a>
             </div>
             <br>
