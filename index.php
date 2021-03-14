@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-    session_name("NomDeSessionAModifierSelonVotreGout" );
+    session_name("MaSession" );
     session_start();
     if (!isset($_SESSION['initiated'])) {
         session_regenerate_id();
@@ -16,7 +16,11 @@
     //require & gestion de la BDD
     require('utilities/utils.php');
 
-    require("utilities/SQLHandler.php");
+    require("class/Database.php");
+    require("class/Utilisateur.php");
+    require("class/Ingredient.php");
+    require("class/Difficulte.php");
+    require("class/Recette.php");
     $dbh = Database::connect(); 
     require("utilities/logInOut.php");
     require("utilities/printForms.php");

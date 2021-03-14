@@ -39,6 +39,12 @@ class Ingredient{
             return null;
         }
     }
+    
+    public static function insererIngredientRecette($dbh,$nom_ingredient,$id_recette,$quantite,$unite) {
+        $sth = $dbh->prepare("INSERT INTO `ingredient_recette` (`nom_ingredient`,`id_recette`,`quantite`,`unite`) VALUES(?,?,?,?)");
+        return $sth->execute(array($nom_ingredient,$id_recette,$quantite,$unite));
+    }
+    
     public static function insererIngredient($dbh, $nom) {
         if (Ingredient::getIngredient($dbh,$nom) !== null){
             return false;

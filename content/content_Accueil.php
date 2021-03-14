@@ -18,9 +18,9 @@ function getContent($args){
         <h2 style="font-size: 25px; color: #244b20">Nos meilleures recettes</h2>
         <br>
         <div class="row align-items-center" style="margin:auto; max-width:1000px">
-            <a class="col-md-auto" href="index.php?page=Recette1">Carottes rapées</a>
-            <a class="col-md-auto ml-auto" href="index.php?page=Recette2">Muffin chou pomme</a>
-            <a class="col-md-auto ml-auto" href="index.php?page=Recette3">Fondant chocolat courgette</a>
+            <a class="col-md-auto" href="index.php?page=Recette&recette=1">Carottes rapées</a>
+            <a class="col-md-auto ml-auto" href="index.php?page=Recette&recette=2">Muffin chou pomme</a>
+            <a class="col-md-auto ml-auto" href="index.php?page=Recette&recette=3">Fondant chocolat courgette</a>
             <!-- <div class="w-100"></div>
             <div class="col-md-2">
                 <img src="pictures/carottes.jpg" class="img-fluid" alt="Carottes rapées">

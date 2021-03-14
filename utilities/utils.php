@@ -35,10 +35,6 @@ $page_list = [
     'AddRecipe' => [
         'name' => 'AddRecipe',
         'title' => "Nouvelle recette",
-    ],
-    'Mur' => [
-        'name' => 'Mur',
-        'title' => "Mur",
     ]
 ];
 
@@ -62,6 +58,7 @@ function getPageName($page) {
 }
 
 function generateMenu($pageName,$askedPage) {
+    if (session_status() != PHP_SESSION_ACTIVE) session_start();
     ?>
 
 <nav class="navbar navbar-expand-xxl navbar-light bg-light">
@@ -77,7 +74,7 @@ function generateMenu($pageName,$askedPage) {
         Cuisin'X
     </a>
 
-    <form class="form-inline my-2 my-lg-0" action="utilities/researchBar.php" method="get">
+    <form class="form-inline my-2 my-lg-0" action="index.php?page=Research" method="post">
       <input class="form-control mr-sm-3" type="text" placeholder="Recherche une recette" aria-label="Recherche" required>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Miam</button>
     </form>
@@ -160,6 +157,7 @@ function generateHTMLHeader($title, $link) {
             <script src='js/jquery.min.js'></script>
             <script src='js/popper.min.js'></script>
             <script src='js/bootstrap.min.js'></script>
+            <script type="text/javascript" src="js/code.js"></script>
             <!-- Mon CSS Perso -->
             <link href='css/$link' rel='stylesheet'>
             <link rel="icon" type="image/jpg" href="pictures/toque.jpg">
