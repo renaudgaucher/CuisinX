@@ -18,7 +18,7 @@
         $sth->execute(array($_GET['cat']));
         $nb_resultat = 0;
         while ($element = $sth->fetch(PDO::FETCH_ASSOC)) {
-            echo '<div class="row shadow p-3 mb-5 bg-light rounded" style="margin: 3%">
+            echo '<div class="row shadow p-3 mb-5 bg-light rounded align-items-center" style="margin: 3%">
                 <div class="col-4 text-center">
                     <h3 style="font-weight:bold">'.htmlspecialchars($element["nom_plat"]).'</h3>
                     <h4 style="font-style: italic">'.htmlspecialchars(TypePlat::id_to_nomTypePlat($dbh,$element["id_type"])).'</h4>

@@ -77,8 +77,8 @@ function generateMenu($pageName,$askedPage) {
         Cuisin'X
     </a>
 
-    <form class="form-inline my-2 my-lg-0" action="index.php?page=Research" method=post>
-      <input class="form-control mr-sm-3" type="text" placeholder="Recherche une recette" name="q" required>
+    <form class="form-inline my-2 my-lg-0" action="index.php" method=get>
+      <input class="form-control mr-sm-3" type="text" placeholder="Recherche une recette" name="recherche" required>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Miam</button>
     </form>
 
@@ -128,16 +128,16 @@ function generateMenu($pageName,$askedPage) {
                             <a class="nav-link" style="font-weight:bold" href="index.php?page=Categorie">Catégories<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=Accueil">Entrée</a>
+                            <a class="nav-link" href="index.php?recherche=Entrée">Entrée</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=Accueil">Plat</a>
+                            <a class="nav-link" href="index.php?recherche=Plat">Plat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=Accueil">Dessert</a>
+                            <a class="nav-link" href="index.php?recherche=Dessert">Dessert</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=Accueil">Cocktail</a>
+                            <a class="nav-link" href="index.php?recherche=Cocktail">Cocktail</a>
                         </li>
                     </ul>
                 </div>
@@ -145,16 +145,16 @@ function generateMenu($pageName,$askedPage) {
                     <ul class="navbar-nav mr-auto">
                         <br>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=Accueil">Végétarien</a>
+                            <a class="nav-link" href="index.php?recherche=Végétarien">Végétarien</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=Accueil">Vegan</a>
+                            <a class="nav-link" href="index.php?recherche=Vegan">Vegan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=Accueil">Meat-eater</a>
+                            <a class="nav-link" href="index.php?recherche=Meat-eater">Meat eater</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=Accueil">Sans porc</a>
+                            <a class="nav-link" href="index.php?recherche=Sans-porc">Sans porc</a>
                         </li>
                     </ul>
                 </div>

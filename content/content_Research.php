@@ -1,19 +1,20 @@
 <?php
 
     function getContent($args){
-    if (isset($_POST["q"])) {
+    if (isset($_GET["recherche"])) {
         $dbh = $args['dbh'];
 
-        echo '<br><div class="container jumbotron shadow p-3 mb-5 rounded">';
-        $query = "SELECT * FROM recettes WHERE nom_plat LIKE CONCAT('%',?,'%') OR consigne LIKE CONCAT('%',?,'%')OR description LIKE CONCAT('%',?,'%')";
+        echo '<br><div class="container jumbotron shadow p-3 mb-5 rounded">
+            <h2></h2>';
+        $query = "SELECT * FROM recettes WHERE nom_plat LIKE CONCAT('%',?,'%') OR consigne LIKE CONCAT('%',?,'%') OR description LIKE CONCAT('%',?,'%')";
         $sth = $dbh->prepare($query);
-        $sth->execute(array($_POST["q"],$_POST["q"],$_POST["q"]));
+        $sth->execute(array($_GET["recherche"],$_GET["recherche"],$_GET["recherche"]));
         $nb_resultat = 0;
         while ($element = $sth->fetch(PDO::FETCH_ASSOC)) {
-            echo '<div class="row shadow p-3 mb-5 bg-white rounded">
-                <div class="col-4">
+            echo '<div class="row shadow p-3 mb-5 bg-white rounded align-items-center" style="margin: 3%">
+                <div class="col-4 text-center">
                     <h3>'.htmlspecialchars($element["nom_plat"]).'</h3>
-                    <p> <a href="index.php?page=Recette&recette='.htmlspecialchars($element["id"]).'">Voir plus</a> </p>
+                    <p> <a class="bolien" href="index.php?page=Recette&recette='.htmlspecialchars($element["id"]).'">Voir plus</a> </p>
                 </div>
                 <div class="col-4">
                     <p>'.htmlspecialchars($element["description"]).'</p>
