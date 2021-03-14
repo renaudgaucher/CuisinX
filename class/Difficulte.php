@@ -22,4 +22,37 @@ class Difficulte{
             return null;
         }
     }
+    
+    public static function convert_id_to_nomDifficulte($dbh,$id_difficulte){
+        $query = "SELECT * FROM `difficulte` WHERE `niveau`= ?;";
+        $sth = $dbh->prepare($query);
+        $request_succeeded = $sth->execute(array($id_difficulte));
+        if ($request_succeeded){
+            $nom_difficulte = $sth->fetch();
+            $sth->closeCursor();
+            if ($nom_difficulte === false){
+                return null;
+            }
+            return $nom_difficulte;
+        }
+        else{
+            return null;
+        }
+    }
+    public static function convert_nomDifficulte_to_id($dbh,$nom_difficulte){
+        $query = "SELECT * FROM `difficulte` WHERE `difficulte`= ?;";
+        $sth = $dbh->prepare($query);
+        $request_succeeded = $sth->execute(array($nom_difficulte));
+        if ($request_succeeded){
+            $id_difficulte = $sth->fetch();
+            $sth->closeCursor();
+            if ($id_difficulte === false){
+                return null;
+            }
+            return $nom_difficulte;
+        }
+        else{
+            return null;
+        }
+    }
 }
