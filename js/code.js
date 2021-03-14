@@ -14,7 +14,6 @@ $(document).ready(function(){
                    
                     $.post("scripts/regle3.php",{id_recette:$("#recette").val(),nb_personne:$set},function(rep){
                         $("#li_ingredient").html(rep);
-                        
                     });
     });
     $("#btn_create_ingredient").click(function(){

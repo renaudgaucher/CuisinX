@@ -18,6 +18,7 @@ function getContent($args){
     if ($recette===null){
         return false;
     }
+    $recette = Recette::autoHtmlspecialchars($recette);
     //var_dump($recette->image) ;
     //$recette->autoHtmlspecialchars();
     ?>
