@@ -120,10 +120,7 @@ class Recette{
         
         $li_alea_recette=[];
         foreach($li_alea_recette_temp as $i_recette_temp){
-            $recette=Recette::getRecette($dbh,$recette_li[$i_recette_temp]->id);
-            var_dump($recette_li[$i_recette_temp]);
-            echo"<br>";
-            var_dump($recette_li[$i_recette_temp]->id);
+            $recette=Recette::getRecette($dbh,$recette_li[$i_recette_temp]['id']);
             if($recette==null){
                 return null;
             }

@@ -14,7 +14,6 @@ $li_alea_recette=Recette::getRecetteAleatoire($dbh, 3);
 $recette1 = $li_alea_recette[0];
 $recette2 = $li_alea_recette[1];
 $recette3 = $li_alea_recette[2];
-var_dump($recette3);
 
 ?> 
 
