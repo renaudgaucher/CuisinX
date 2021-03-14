@@ -89,10 +89,10 @@ if (!$form_values_valid) {
 else{
     //Si le formulaire est valide
     
-
 ?>
-<main class="container py-5 text-center">
-    <h2> compte enregistré ! </h2>
+<main class="container jumbotron shadow p-3 mb-5 rounded py-5 text-center">
+    <h2> Compte enregistré ! </h2>
+    <a class="btn btn-success" href="http://localhost/CuisinX/index.php?page=Login"> Connexion </a>
 </main>
 <?php
 }
