@@ -5,9 +5,9 @@
         $dbh = $args['dbh'];
 
         echo '<br><div class="container jumbotron shadow p-3 mb-5 rounded">';
-        $query = "SELECT * FROM recettes WHERE nom_plat LIKE CONCAT('%',?,'%') OR consigne LIKE CONCAT('%',?,'%') OR description LIKE CONCAT('%',?,'%')";
+        $query = "SELECT * FROM recettes WHERE difficulte LIKE CONCAT('%',?,'%')";
         $sth = $dbh->prepare($query);
-        $sth->execute(array($_POST["q"],$_POST["q"],$_POST["q"]));
+        $sth->execute(array($_POST["q"]));
         $nb_resultat = 0;
         while ($element = $sth->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="row shadow p-3 mb-5 bg-white rounded">
