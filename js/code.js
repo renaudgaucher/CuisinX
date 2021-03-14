@@ -11,6 +11,12 @@ $(document).ready(function(){
     $('.range').on('input', function() {
                     var $set = $(".range").val();
                     $("#disp_nb_personne").html("Nombre de personnes :  "+ $set );
+                    
+                    console.log($("#recette").val());
+                    
+                    //$.post("#li_ingredient",{id_recette:$_POST['recette'],nb_personne:$set},function(rep){
+                    //    $("li_ingredient").html(rep);
+                    //});
     });
     $("#btn_create_ingredient").click(function(){
         

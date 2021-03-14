@@ -71,8 +71,11 @@ function getContent($args){
                 <div class="col-md-3 ">
                     <h4 class="display-4" align="center"> Ingrédients </h4>
                     <br/>
+                    <label for="customRange2" class="form-label" id="disp_nb_personne">Nombre de personnes : 1</label>
+                    <input type="range" class="range" min="1" max="20" name="nb_personne" value="1" required/>
+                    <output></output>
                     <?php
-                    echo "<ul>";
+                    echo "<ul id='li_ingredient'>";
                     foreach($recette->liste_ingredient as $ingredient) {
                             echo "<li>$ingredient->quantite $ingredient->unite ". Ingredient::id_to_nomIngredient($dbh,$ingredient->id_ingredient)['nom']."</li>";
                     }
@@ -99,22 +102,7 @@ function getContent($args){
     
 
     <?php
-}
-
-function addIngredient($ingredientNom,$dbh){
-    if (compareWithIngredients($ingredientNom,$dbh)){
-        return;
-    }
-    $sql = "INSERT INTO ingredient(nom) VALUES ('$ingredientNom')";
-    $dbh->exec($sql);
-}
-
-function compareWithIngredients($ingredientNom,$bdd) {
-    $query = $bdd->query("SELECT * FROM ingredient");
-    foreach ($query as $r) {
-        if(strcasecmp($r['ingredientNom'],$ingredientNom)== 0){
-            return TRUE;
-        }
-    }
-    return FALSE;
+    echo"<input type='number' value=$id_recette id='recette' hidden/>";
+    var_dump($id_recette);
+    
 }
