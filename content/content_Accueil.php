@@ -15,35 +15,37 @@ $recette1 = $li_alea_recette[0];
 $recette2 = $li_alea_recette[1];
 $recette3 = $li_alea_recette[2];
 
-?> 
 
-<div class="jumbotron shadow p-3 mb-5 rounded">
-    <h1 class="display-4 text-center" style="font-weight: bold; color: #244b20">Bienvenue sur Cuisin'X</h1>
-    <p class="lead">En panne d'inspi pour le diner de ce soir ? C'est dimanche et le magnan est fermé ? On est là pour vous sauver !</p>
+
+echo '<div class="jumbotron shadow p-3 mb-5 rounded">
+    <h1 class="display-4 text-center" style="font-weight: bold; color: #244b20">Bienvenue sur Cuisin\'X</h1>
+    <p class="lead">En panne d\'inspi pour le diner de ce soir ? C\'est dimanche et le magnan est fermé ? On est là pour vous sauver !</p>
     <hr class="my-4">
-    <p> Vous êtes ici sur le site de recettes de l'école polytechnique, qui vous fournit les meilleures recettes et vous permet de poster les votres ! Temps de préparation, du niveau J'aiDuMalAvecLesPâtes à JeSuisAspiRatatouille, meat-eater/végé/vegan, on a pensé à tout !</p>
+    <p> Vous êtes ici sur le site de recettes de l\'école polytechnique, qui vous fournit les meilleures recettes et vous permet de poster les votres ! Temps de préparation, du niveau J\'aiDuMalAvecLesPâtes à JeSuisAspiRatatouille, meat-eater/végé/vegan, on a pensé à tout !</p>
     <div class="cat col-md-auto categorie text-center">
         <h2 style="font-size: 25px; color: #244b20">Recettes aléatoires</h2>
         <br>
         <div class="row align-items-center" style="margin:auto; max-width:1000px">
-            <a class="col-md-auto bolien" href="index.php?page=Recette&recette=1"> <?php echo "$recette1->nom_plat" ?></a>
-            <a class="col-md-auto ml-auto bolien" href="index.php?page=Recette&recette=2"> <?php echo "$recette2->nom_plat" ?></a>
-            <a class="col-md-auto ml-auto bolien" href="index.php?page=Recette&recette=3"> <?php echo "$recette3->nom_plat" ?></a>
+            <a class="col-md-auto bolien" href="index.php?page=Recette&recette='.$recette1->id.'">'.$recette1->nom_plat.'</a>
+            <a class="col-md-auto ml-auto bolien" href="index.php?page=Recette&recette='.$recette2->id.'">'.$recette2->nom_plat.'</a>
+            <a class="col-md-auto ml-auto bolien" href="index.php?page=Recette&recette='.$recette3->id.'">'.$recette3->nom_plat.'</a>
             <div class="w-100"></div>
             <div class="col-md-2">
-                <img src="<?php echo "$recette1->image" ?>" style="width:200px"; class="img-fluid" alt="<?php echo "$recette1->nom_plat" ?>">
+                <img src="'.$recette1->image.'" style="width:200px"; class="img-fluid" alt="'.$recette1->nom_plat.'">
             </div>
 
             <div class="col-md-2 ml-auto">
-                <img src="<?php echo "$recette2->image" ?>" style="width:200px"; class="img-fluid" alt="<?php echo "$recette2->nom_plat" ?>">
+                <img src="'.$recette2->image.'" style="width:200px"; class="img-fluid" alt="'.$recette2->nom_plat.'">
             </div>
 
             <div class="col-md-2 ml-auto">
-                <img src="<?php echo "$recette3->image" ?>" style="width:200px"; class="img-fluid" alt="<?php echo "$recette3->nom_plat" ?>">
+                <img src="'.$recette3->image.'" style="width:200px"; class="img-fluid" alt="'.$recette3->nom_plat.'">
             </div>
         </div>
 </div>
-</div>
+</div>' ;
+
+?>
 
 <br>
 
