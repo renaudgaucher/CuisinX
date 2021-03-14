@@ -50,7 +50,7 @@ function getContent($args){
                     <p> Difficulté : <?php echo Difficulte::id_to_nomDifficulte($dbh, ($recette->id_difficulte)); ?> </p>
                 </div>
                 <div class="col-md-3 offset-md-2">
-                    <p> Contenu : <?php echo $recette->id_contenu ?> </p>
+                    <p> Contenu : <?php echo Contenu::id_to_contenu($dbh,$recette->id_contenu); ?> </p>
                 </div>
                 <div class="col-md-3 offset-md-2">
                     <p> Type : <?php echo TypePlat::id_to_nomTypePlat($dbh,$recette->id_type) ?> </p>
