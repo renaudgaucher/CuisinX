@@ -101,6 +101,39 @@ class Recette{
         }
     }
     
+    public static function getRecetteAleatoire($dbh,$nb_recettes){ //Choisi aleatoirerement $nb_recette et les propose
+        $query = "SELECT * FROM recettes";
+        $sth = $dbh->prepare($query);
+        //$sth->setFetchMode(PDO::FETCH_CLASS, 'Recette');
+        $request_succeeded = $sth->execute(array());
+        if($request_succeeded){
+            $recette_li = $sth->fetchAll(PDO::FETCH_ASSOC);
+            $sth->closeCursor();
+            if ($recette_li===false){
+                return null;
+            }
+        }
+        else{
+            return null;
+        }
+        $li_alea_recette_temp = array_rand($recette_li,$nb_recettes);
+        
+        $li_alea_recette=[];
+        foreach($li_alea_recette_temp as $i_recette_temp){
+            $recette=Recette::getRecette($dbh,$recette_li[$i_recette_temp]->id);
+            var_dump($recette_li[$i_recette_temp]);
+            echo"<br>";
+            var_dump($recette_li[$i_recette_temp]->id);
+            if($recette==null){
+                return null;
+            }
+            else{
+                array_push($li_alea_recette,$recette);
+            }
+        }
+        return $li_alea_recette;
+    }
+    
     public static function insererRecette($dbh, $nom_plat, $createur, $image, $consigne, $difficulte, $temps_cuisson, $temps_preparation,$nombre_personne) {
         $sth = $dbh->prepare("INSERT INTO `recettes` (`id`, `nom_plat`, `createur`, `image`, `consigne`, `difficulte`, `temps_cuisson`, `temps_preparation`,`nb_personne`) VALUES(?,?,?,?,?,?,?,?,?)");
         return $sth->execute(array(null,$nom_plat, $createur, $image, $consigne, $difficulte, $temps_cuisson, $temps_preparation,$nombre_personne));
