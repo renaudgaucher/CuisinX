@@ -74,7 +74,7 @@ function getContent($args){
                     <?php
                     echo "<ul>";
                     foreach($recette->liste_ingredient as $ingredient) {
-                            echo "<li>$ingredient->quantite $ingredient->unite $ingredient->nom_ingredient</li>";
+                            echo "<li>$ingredient->quantite $ingredient->unite ". Ingredient::id_to_nomIngredient($dbh,$ingredient->id_ingredient)['nom']."</li>";
                     }
 
                     echo "</ul>";
