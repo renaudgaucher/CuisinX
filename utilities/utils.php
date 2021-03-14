@@ -4,6 +4,10 @@ $page_list = [
         'name' => 'Accueil',
         'title' => "Cuisin'X",
     ],
+    'Profil' => [
+        'name' => 'Profil',
+        'title' => "Mon profil",
+    ],
     'Error' => [
         'name' => 'Error',
         'title' => 'Erreur',
