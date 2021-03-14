@@ -103,6 +103,7 @@ function generateMenu($pageName,$askedPage) {
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="index.php?page=ChangePassword">Changer mon mot de passe</a>
                     <a class="dropdown-item" href="index.php?page=DeleteUser">Supprimer mon compte</a>
+                    <a class="dropdown-item" href="index.php?page=Profil">Mon Profil</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="index.php?page=AddRecipe">Ajouter une recette</a>
                 </div>
