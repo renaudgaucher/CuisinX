@@ -8,4 +8,10 @@ $(document).ready(function(){
             event.preventDefault();
         })
     });
+    $('.range').on('input', function() {
+                    var $set = $(".range").val();
+                    $("#disp_nb_personne").html("Nombre de personnes :  "+ $set );
+    });
 })
+
+
