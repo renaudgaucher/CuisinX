@@ -1,13 +1,28 @@
 <?php
 /*
- * Juste pour la page d'Accuei, a long terme ne doit pas servir pour afficher ensuite les recherches ou autre
+ * Juste pour la page d'Accueil, a long terme ne doit pas servir pour afficher ensuite les recherches ou autre
  */
 function getContent($args){
 }
     // echo <<<CHAINE_DE_FIN
 //CHAINE_DE_FIN;
-?>    
+?>  
 
+<?php
+
+$dbh = $args['dbh'];
+$res = $dbh->prepare("SELECT COUNT(*) FROM `recettes`");
+$res->execute();
+$tab = $res->fetch(PDO::FETCH_NUM) ;
+$nb = $tab[0] ;
+$id_recette1 = rand (1, $nb) ;
+$id_recette2 = (($id_recette1 + 1) % $nb) + 1;
+$id_recette3 = (($id_recette2 + 1) % $nb) + 1;
+$recette1 = Recette::getRecette($dbh,$id_recette1);
+$recette2 = Recette::getRecette($dbh,$id_recette2);
+$recette3 = Recette::getRecette($dbh,$id_recette3);
+
+?> 
 
 <div class="jumbotron shadow p-3 mb-5 rounded">
     <h1 class="display-4 text-center" style="font-weight: bold; color: #244b20">Bienvenue sur Cuisin'X</h1>
@@ -18,22 +33,21 @@ function getContent($args){
         <h2 style="font-size: 25px; color: #244b20">Nos meilleures recettes</h2>
         <br>
         <div class="row align-items-center" style="margin:auto; max-width:1000px">
-            <a class="col-md-auto" href="index.php?page=Recette&recette=1">Carottes rapées</a>
-            <a class="col-md-auto ml-auto" href="index.php?page=Recette&recette=2">Muffin chou pomme</a>
-            <a class="col-md-auto ml-auto" href="index.php?page=Recette&recette=3">Fondant chocolat courgette</a>
-            <!-- <div class="w-100"></div>
+            <a class="col-md-auto" href="index.php?page=Recette&recette=1"> <?php echo "$recette1->nom_plat" ?></a>
+            <a class="col-md-auto ml-auto" href="index.php?page=Recette&recette=2"> <?php echo "$recette2->nom_plat" ?></a>
+            <a class="col-md-auto ml-auto" href="index.php?page=Recette&recette=3"> <?php echo "$recette3->nom_plat" ?></a>
+            <div class="w-100"></div>
             <div class="col-md-2">
-                <img src="pictures/carottes.jpg" class="img-fluid" alt="Carottes rapées">
+                <img src="<?php echo "$recette1->image" ?>" style="width:200px"; class="img-fluid" alt="<?php echo "$recette1->nom_plat" ?>">
             </div>
 
             <div class="col-md-2 ml-auto">
-                <img src="pictures/muffin.jpg" class="img-fluid" alt="Muffin">
+                <img src="<?php echo "$recette2->image" ?>" style="width:200px"; class="img-fluid" alt="<?php echo "$recette2->nom_plat" ?>">
             </div>
 
             <div class="col-md-2 ml-auto">
-                <img src="pictures/fondant.jpg" class="img-fluid" alt="Fondant">
+                <img src="<?php echo "$recette3->image" ?>" style="width:200px"; class="img-fluid" alt="<?php echo "$recette3->nom_plat" ?>">
             </div>
-            -->
         </div>
 </div>
 </div>
@@ -93,4 +107,6 @@ function getContent($args){
     <br>
 
 </div>
+
+
 
