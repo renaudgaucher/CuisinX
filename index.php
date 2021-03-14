@@ -21,6 +21,7 @@
     require("class/Ingredient.php");
     require("class/Difficulte.php");
     require("class/Recette.php");
+    require("class/TypePlat.php");
     $dbh = Database::connect(); 
     require("utilities/logInOut.php");
     require("utilities/printForms.php");
