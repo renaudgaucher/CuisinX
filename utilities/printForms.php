@@ -17,7 +17,7 @@ function printLogoutLink($askedPage){
     $page = htmlspecialchars($askedPage);
     echo <<<FIN
 
-        <form class="form-inline my-2 my-lg-0" action = "index.php?todo=logout&page=$page" method = "post">
+        <form class="form-inline my-2 my-lg-0" action = "index.php?todo=logout&page=Accueil" method = "post">
             <div class = "input-group">
                 <button type = "submit" class = "btn btn-danger">Déconnexion</button>
             </div>
