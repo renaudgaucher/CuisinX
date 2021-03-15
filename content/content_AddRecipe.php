@@ -40,7 +40,6 @@ function getContent($args) {
                 isset($_POST["nb_personne"]) && ctype_digit($_POST["nb_personne"]) &&
                 isset($_POST["temps_cuisson"]) && is_numeric($_POST["temps_cuisson"]) &&
                 isset($_POST["temps_preparation"]) && is_numeric($_POST["temps_preparation"]) &&
-                isset($_POST["nb_personne"]) && ctype_digit($_POST["nb_personne"]) &&
                 isset($_POST["contenu"]) && ctype_digit($_POST["contenu"]) &&
                 isset($_POST["type"]) && ctype_digit($_POST["type"]) &&
                 isset($_POST["ingredients"]) && isset($_POST["quantites"]) && isset($_POST["unites"]))
@@ -70,7 +69,7 @@ function getContent($args) {
                             Recette::changerImage($dbh, $recipe->id, $path);
                             $form_values_valid = true;
                         } else {
-                            echo "upload de la photo échoué";
+                            echo "<h2 style='margine:auto;max-width:300px'>upload de la photo échoué </h2>";
                         }
                     }
                 } else
@@ -85,11 +84,37 @@ function getContent($args) {
                 }
             }
         }
+        else{
+            echo "<h2 style='margine:auto;max-width:300px'> Erreur dans la soumission du fichier </h2>";
+        }
+    if (!$form_values_valid) {
+        if(!isset($_POST["nom_plat"]) && !$_POST["nom_plat"] != "") echo "<h2 style='margine:auto;max-width:300px'> Nom du plat manquant </h2>";
+        if(!isset($_POST["description"]) && !$_POST["description"] != "") echo "<h2 style='margine:auto;max-width:300px'> Description vide </h2>";
+        if(!isset($_POST["consigne"]) && !$_POST["consigne"] != "") echo "<h2 style='margine:auto;max-width:300px'> Consigne manquante </h2>";
+        if(!isset($_POST["difficulte"]) && !ctype_digit($_POST["difficulte"]) && $_POST["difficulte"] < 4 && $_POST["difficulte"] > 0) echo "<h2 style='margine:auto;max-width:300px'> Difficulté invalide </h2>";
+        if(!isset($_POST["nb_personne"]) && !ctype_digit($_POST["nb_personne"])) echo "<h2 style='margine:auto;max-width:300px'> Nombre de personne invalide </h2>";
+        if(!isset($_POST["temps_cuisson"]) && !is_numeric($_POST["temps_cuisson"])) echo "<h2 style='margine:auto;max-width:300px'> Temps de cuisson invalide </h2>";
+        if(!isset($_POST["temps_preparation"]) && !is_numeric($_POST["temps_preparation"])) echo "<h2 style='margine:auto;max-width:300px'> Temps de préparation invalide </h2>";
+        if(!isset($_POST["contenu"]) && !ctype_digit($_POST["contenu"])) echo "<h2 style='margine:auto;max-width:300px'> Type de contenu invalide </h2>";
+        if(!isset($_POST["type"]) && !ctype_digit($_POST["type"])) echo "<h2 style='margine:auto;max-width:300px'> Type de plat invalide </h2>";
+        if(!isset($_POST["ingredients"]) || !isset($_POST["quantites"]) || !isset($_POST["unites"])) echo "<h2 style='margine:auto;max-width:300px'> Vous n'avez pas choisi d'ingrédient </h2>";
+        if(isset($_POST["ingredients"]) && isset($_POST["quantites"]) && isset($_POST["unites"])){
+            $res = true;
+            foreach ($_POST["ingredients"] as $ingredient) {
+                $res = $res && in_array($ingredient, $li_ingredient_dispo);
+            }
+            foreach ($_POST["quantites"] as $quantite) {
+                $res = $res && is_numeric($quantite);
+            }
+            if(!$res) echo "<h2 style='margine:auto;max-width:300px'> Liste d'ingrédient invalide ! </h2>";
+        }
+    }
     }
 
 
 
     if (!$form_values_valid) {
+        
         // code du formulaire
         //on teste si les champs étaient définis
         if (isset($_POST["nom_plat"]))
@@ -104,7 +129,7 @@ function getContent($args) {
             $consigne = "";
         ?>
 
-        <main>
+        
             <div class="container text-center">
                 <form action="index.php?page=AddRecipe&todo=addRecipe" method="post" enctype="multipart/form-data">
                     <div class="input-group mb-3">
@@ -124,7 +149,7 @@ function getContent($args) {
                     </div>
 
                     <label for="customRange2" class="form-label" id="disp_nb_personne">Nombre de personnes : 1</label>
-                    <input type="range" class="range" min="1" max="15" name="nb_personne" value="1" required/>
+                    <input type="range" class="range" min="1" max="15" name="nb_personne" value="2" required/>
                     <output></output>
 
                     <div class="jumbotron shadow p-3 mb-5 rounded">
@@ -148,7 +173,8 @@ function getContent($args) {
 
                                 <input class="btn btn-outline-primary" id="nouvel_ingredient" type="button" value="Ingrédient supplémentaire">
                             </div>
-                            <br> <br>
+                            <br>
+                            </br>
                             <div class="input-group" id="nvlIngr">
                                 <span class="input-group-text">Créer un nouvel ingrédient</span>
                                 <input class="form-control" id="create_ingredient"/> 
@@ -225,16 +251,16 @@ function getContent($args) {
                     <div class="form-group"><input class="btn btn-success" type = "submit" id="sub" value = "Création de recette"></div>
                 </form>
             </div>
-        </main>
+        
 
 
         <?php
     } else {
         //Si le formulaire est valide
         ?>
-        <main class="container py-5 text-center">
+        <div class="container py-5 text-center">
             <h2> Recette enregistrée ! </h2>
-        </main>
+        </div>
         <?php
     }
 }
