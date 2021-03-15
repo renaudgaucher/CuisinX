@@ -42,11 +42,11 @@ function getContent($args){
 
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <h1 class="display-4" style="font-weight:bold"> <?php echo "$recette->nom_plat"?> </h1> 
                 </div>
-                <div class="col-md-3 offset-md-1">
-                    <img src="<?php echo "$recette->image" ?>" style="width:200px";>
+                <div class="col-md-0 offset-md-0">
+                    <img src="<?php echo "$recette->image" ?>" style="width:400px" alt="<?php echo "$recette->image" ?>">
                 </div>
             </div>
         </div>
@@ -79,15 +79,15 @@ function getContent($args){
     </div>
 <div class="jumbotron shadow p-3 mb-5 rounded">
 
-        <h1 class="display-4" align="center"> Déroulé de la recette </h1> 
+        <h1 class="display-4 text-center"> Déroulé de la recette </h1> 
         <hr class="my-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 ">
-                    <h4 class="display-4" align="center"> Ingrédients </h4>
+                    <h4 class="display-4 text-center"> Ingrédients </h4>
                     <br/>
-                    <label for="customRange2" class="form-label" id="disp_nb_personne">Nombre de personnes : <?php echo "$recette->nb_personne" ?></label>
-                    <input type="range" class="range" min="1" max="20" name="nb_personne" value="<?php echo "$recette->nb_personne" ?>" required/>
+                    <label class="form-label" id="disp_nb_personne">Nombre de personnes : <?php echo "$recette->nb_personne" ?></label>
+                    <input type="range" class="range" min="1" max="20" name="nb_personne" value="<?php echo "$recette->nb_personne" ?>"/>
                     <output></output>
                     <?php
                     echo "<ul id='li_ingredient'>";
@@ -99,7 +99,7 @@ function getContent($args){
                     ?>
                 </div>
                 <div class="col-md-7 offset-md-2">
-                    <h4 class="display-4" align="center"> Recette </h4>
+                    <h4 class="display-4"> Recette </h4>
                     <br/>
                     <?php
                     $etaperecette = str_replace( "/h" , "<br><br>" , $recette->consigne );

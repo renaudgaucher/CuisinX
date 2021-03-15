@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-4">
                     <a href="index.php?page=Recette&recette='.$element["id"].'">
-                    <img src='.$element["image"].' alt="Image" width="100%">
+                    <img src='.$element["image"].' alt="Image" style="width:200px">
                     </a>
                 </div>
             </div>';

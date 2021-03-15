@@ -46,7 +46,7 @@ function getContent($args) {
                 </div>
                 <div class="col-4">
                     <a href="index.php?page=Recette&recette='.$recette["id"].'">
-                    <img src='.$recette["image"].' alt="Image" width="100%">
+                    <img src='.$recette["image"].' alt="Image" width="250">
                     </a>
                 </div>
                 <div class="col-4 text-center">

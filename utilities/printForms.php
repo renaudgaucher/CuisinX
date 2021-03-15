@@ -30,7 +30,7 @@ function printAccountCreationForm(){
 
     <div class="row align-items-center bg-light py-5 shadow p-3 mb-5 rounded text-center">
         <div class="col-md-2">
-            <img src="pictures/mdp.jpg" style="width:300px" alt="Cadenas" ?>
+            <img src="pictures/mdp.jpg" style="width:300px" alt="Cadenas">
         </div>
         <form class="col-md-8" action="index.php?page=ChangePassword" method=post
               oninput="up2.setCustomValidity(up2.value != up.value ? 'Les mots de passe diffèrent.' : '')">
@@ -58,7 +58,7 @@ function printAccountCreationSuccessForm(){
     echo <<<FIN
     
     
-    <div class="container bg-light py-5 text-center">
+    <div class="container bg-light py-5 shadow p-3 mb-5 rounded text-center">
         <h2> Vous avez bien changé votre mot de passe <h2>
         <br>
         <a class="btn btn-primary" href="index.php?page=Accueil" role="button">Retour à l'Accueil</a>
@@ -71,7 +71,7 @@ function printAccountUnsubscribeSuccessForm(){
     echo <<<FIN
     
     
-    <div class="container bg-light py-5 text-center">
+    <div class="container bg-light py-5 shadow p-3 mb-5 rounded text-center">
         <h2> Vous avez bien supprimé votre compte <h2>
         <br>
         <a class="btn btn-primary" href="index.php?page=Accueil" role="button">Retour à l'Accueil</a>
@@ -83,7 +83,7 @@ function printAccountUnsubscribeForm(){
     echo <<<FIN
     
     
-    <div class="container bg-light py-5 text-center">
+    <div class="container bg-light text-center py-5 shadow p-3 mb-5 rounded">
         <form action="index.php?page=DeleteUser" method=post>
             <div>
                 <input type="text" required name="DelLogin" placeholder="login">
