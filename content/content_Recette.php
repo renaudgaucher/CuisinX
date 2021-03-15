@@ -21,6 +21,22 @@ function getContent($args){
     $recette = Recette::autoHtmlspecialchars($recette);
     //var_dump($recette->image) ;
     //$recette->autoHtmlspecialchars();
+    var_dump($_POST);
+    
+    if(isset($_POST) && isset($_POST["delete"]) && $_POST["delete"]=="SUPPRIMER RECETTE"&&
+            session_status()==PHP_SESSION_ACTIVE && isset($_SESSION['login']) && Utilisateur::getUtilisateur($dbh, $_SESSION['login'])->admin==1){
+        Recette::supprimerRecette($dbh, $recette);
+        ?>
+    <div class='jumbotron'>
+        <h1 class='align-items-center'>
+            Vous avez supprimé la recette !
+        </h1>
+    </div>
+    <?php    
+    }
+    else{
+    
+    
     ?>
     <br>
     <div class="jumbotron">
@@ -96,7 +112,19 @@ function getContent($args){
                 </div>
             </div>
         </div>
-        
+        <?php
+        if(session_status()==PHP_SESSION_ACTIVE && isset($_SESSION['login']) && Utilisateur::getUtilisateur($dbh, $_SESSION['login'])->admin==1){
+            ?>   
+        <div style="margin:auto;max-width:400px;text-align:center">
+            <br><br>
+            
+            <form action="index.php?page=Recette&recette=<?php echo htmlspecialchars($_GET['recette']) ?>" method=post>
+                <input type="submit" class="btn btn-outline-danger" value="SUPPRIMER RECETTE" name="delete"\>
+            </form>
+        </div>
+        <?php
+        }
+        ?>
     </div>
     
     
@@ -104,6 +132,6 @@ function getContent($args){
 
     <?php
     echo"<input type='number' value=$id_recette id='recette' hidden/>";
-    var_dump($id_recette);
     
+}
 }
