@@ -145,7 +145,7 @@ function getContent($args) {
                         <textarea class="form-control" name="consigne" required><?php echo $consigne; ?></textarea>
                     </div>
 
-                    <label for="customRange2" class="form-label" id="disp_nb_personne">Nombre de personnes : 1</label>
+                    <label class="form-label" id="disp_nb_personne">Nombre de personnes : 1</label>
                     <input type="range" class="range" min="1" max="15" name="nb_personne" value="2"/>
                     <output></output>
 
@@ -154,7 +154,8 @@ function getContent($args) {
                             <div>
                                 <div  id="add_ingredient">
                                     <div class="form-row">
-                                        <div class="col-md-4 mb-3"><label> Ingrédient </label> : <select class="custom-select" name="ingredients[]" required>
+                                        <div class="col-md-4 mb-3"><label> Ingrédient </label> : <select class="custom-select" name="ingredients[]">
+                                                
                                                 <?php
                                                 foreach ($li_ingredient_dispo as $ingredient_dispo) {
                                                     echo "<option value='".$ingredient_dispo['id']."'>".htmlspecialchars($ingredient_dispo['nom']) ."</option>";
@@ -171,7 +172,7 @@ function getContent($args) {
                                 <input class="btn btn-outline-primary" id="nouvel_ingredient" type="button" value="Ingrédient supplémentaire">
                             </div>
                             <br>
-                            </br>
+                            <br>
                             <div class="input-group" id="nvlIngr">
                                 <span class="input-group-text">Créer un nouvel ingrédient</span>
                                 <input class="form-control" id="create_ingredient"/> 
@@ -189,8 +190,8 @@ function getContent($args) {
                                 <div class="col-sm-5 offset-md-1">
                        
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Difficulté</span>
-                            <select class = "custom-select" name="difficulte" required>
+                            <span class="input-group-text">Difficulté</span>
+                            <select class = "custom-select" name="difficulte">
 
                                         <?php
                                         foreach ($li_difficulte_dispo as $difficulte_dispo) {
@@ -222,8 +223,8 @@ function getContent($args) {
 
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Contenu</span>
-                        <select class = "custom-select" name="contenu" required> 
+                        <span class="input-group-text">Contenu</span>
+                        <select class = "custom-select" name="contenu"> 
 
                                     <?php
                                     foreach ($li_contenu_dispo as $contenu_dispo) {
@@ -233,8 +234,8 @@ function getContent($args) {
                                 </select>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Type de plat</span>
-                        <select class = "custom-select" name="type" required>
+                        <span class="input-group-text">Type de plat</span>
+                        <select class = "custom-select" name="type">
 
                                     <?php
                                     foreach ($li_typePlat_dispo as $typePlat) {
