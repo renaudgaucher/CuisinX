@@ -21,7 +21,7 @@ function getContent($args) {
     $li_difficulte_dispo = Difficulte::liste_difficulte($dbh);
     $li_typePlat_dispo = TypePlat::liste_typePlat($dbh);
     $li_contenu_dispo = Contenu::liste_contenu($dbh);
-    
+    array_multisort($li_ingredient_dispo);
     
 
 
@@ -50,7 +50,7 @@ function getContent($args) {
                 $res = $res && in_array($ingredient, $li_ingredient_dispo);
             }
             foreach ($_POST["quantites"] as $quantite) {
-                $res = $res && ctype_digit($quantite);
+                $res = $res && is_numeric($quantite);
             }
             
             
