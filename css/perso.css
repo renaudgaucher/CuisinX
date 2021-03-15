@@ -1,9 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Nerko+One);
-
-@font-face {
-  font-family: myFont;
-  src: url();
-}
 
 [class*="col-"].gris {
     background-color: grey;
@@ -18,8 +12,8 @@
 }
 
 .bo{
-    font-family:'Optima';
     color: black;
+    font-family: 'Optima';
 }
 
 .bolien{
@@ -32,7 +26,7 @@
 
 
 main {
-    font-family:'Optima';
+    font-family: 'Optima';
     margin : auto;
     height: auto;
     border-radius: 5px;

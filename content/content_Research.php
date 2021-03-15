@@ -5,7 +5,7 @@
         $dbh = $args['dbh'];
 
         echo '<br><div class="container jumbotron shadow p-3 mb-5 rounded">
-        <h2 class="text-center" style="color: #244b20">
+        <h3 style="margin: 25px; color: #244b20">
             Résultats pour : '.htmlspecialchars($_GET["recherche"]).'
         </h2>';
         $query = "SELECT recettes.id,recettes.nom_plat, recettes.createur,recettes.id_difficulte,recettes.id_contenu,
@@ -19,9 +19,13 @@
         $nb_resultat = 0;
         while ($element = $sth->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="row shadow p-3 mb-5 bg-white rounded align-items-center" style="margin: 3%">
-                <div class="col-4 text-center">
-                    <h3>'.htmlspecialchars($element["nom_plat"]).'</h3>
-                    <p> <a class="bolien" href="index.php?page=Recette&recette='.htmlspecialchars($element["id"]).'">Voir plus</a> </p>
+                <div class="col-4">
+                    <h3 style="font-weight:bold" class="text-center">'.htmlspecialchars($element["nom_plat"]).'</h3>
+                    <br>
+                    <p style="font-style:italic">Temps de cuisson : '.htmlspecialchars($element["temps_cuisson"]).' min</p>
+                    <p style="font-style:italic">Temps de préparation : '.htmlspecialchars($element["temps_preparation"]).' min</p>
+                    <p style="font-style:italic">Difficulté : '.htmlspecialchars(Difficulte::id_to_nomDifficulte($dbh, ($element["id_difficulte"]))).'</p>
+                    <p class="text-center"> <a class="bolien" href="index.php?page=Recette&recette='.htmlspecialchars($element["id"]).'">Voir plus</a> </p>
                 </div>
                 <div class="col-4">
                     <p>'.htmlspecialchars($element["description"]).'</p>
