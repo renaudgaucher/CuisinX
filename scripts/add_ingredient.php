@@ -12,8 +12,7 @@ $dbh=null;
     <div class="col-md-4 mb-3"><label> Ingrédient </label> : <select class="custom-select" name="ingredients[]"><option></option>
             <?php
             foreach($li_ingredient_dispo as $ingredient_dispo){
-                $nom_ingredient_dispo = htmlspecialchars($ingredient_dispo['nom']);
-                echo "<option value=$nom_ingredient_dispo> $nom_ingredient_dispo </option>";
+                echo "<option label=".$ingredient_dispo['id']." value=".$ingredient_dispo['id'].">". htmlspecialchars($ingredient_dispo['nom'])." </option>";
             }
             ?>
         </select>
