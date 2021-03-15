@@ -58,52 +58,50 @@ function getContent($args) {
             $promotion = "";
         ?>
 
-        <main>
-            <div class="container shadow p-3 mb-5 rounded py-5 bg-light text-center">
-                <h3>Vous pourrez bientôt publier une recette !</h3>
+        <div class="container shadow p-3 mb-5 rounded py-5 bg-light text-center">
+            <h3>Vous pourrez bientôt publier une recette !</h3>
+            <br>
+            <form action="index.php?page=Register&todo=register" method=post
+                    oninput="up2.setCustomValidity(up2.value != up.value ? 'Les mots de passe diffèrent.' : '')">
+
+
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text">Pseudo</span>
+                    <input type="text" required name="login" value="<?php echo $login ?>" placeholder="xavierdupont" class="form-control">
+                </div>
                 <br>
-                <form action="index.php?page=Register&todo=register" method=post
-                      oninput="up2.setCustomValidity(up2.value != up.value ? 'Les mots de passe diffèrent.' : '')">
-
-
-                    <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="addon-wrapping">Pseudo</span>
-                        <input type="text" required name="login" value="<?php echo $login ?>" placeholder="xavierdupont" class="form-control">
-                    </div>
-                    <br>
-                    <div class="input-group">
-                        <span class="input-group-text">Prénom et Nom</span>
-                        <input type="text" required name="prenom" value="<?php echo $prenom ?>" placeholder="Xavier" class="form-control">
-                        <input type="text" required name="nom" value="<?php echo $nom ?>" placeholder="Dupont" class="form-control">
-                    </div>
-                    <br>
-                    <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="addon-wrapping">@</span>
-                        <input type="email" required name="email" value="<?php echo $email ?>" placeholder="xavierdupont@hotmail.fr" class="form-control">
-                    </div>
-                    <br>
-                    <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="addon-wrapping">Date de naissance</span>
-                        <input type="date" required name="naissance" value="<?php echo $naissance ?>" class="form-control">
-                    </div>
-                    <br>
-                    <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="addon-wrapping">Promotion X</span>
-                        <input type="number" name="promotion" value="<?php echo $promotion ?>" placeholder="2019" class="form-control">
-                    </div>
-                    <br>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Mot de passe</span>
-                            <input type="password" required name="password1" placeholder="1234" class="form-control">
-                        <span class="input-group-text">Confirmer le mot de passe</span>
-                        <input type="password" name="password2" placeholder="1234" class="form-control">
-                    </div>
-                    <div class="my-1">
-                         <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon03">Créer Compte</button>
-                    </div>
-                </form>
-            </div>
-        </main>
+                <div class="input-group">
+                    <span class="input-group-text">Prénom et Nom</span>
+                    <input type="text" required name="prenom" value="<?php echo $prenom ?>" placeholder="Xavier" class="form-control">
+                    <input type="text" required name="nom" value="<?php echo $nom ?>" placeholder="Dupont" class="form-control">
+                </div>
+                <br>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text">@</span>
+                    <input type="email" required name="email" value="<?php echo $email ?>" placeholder="xavierdupont@hotmail.fr" class="form-control">
+                </div>
+                <br>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text">Date de naissance</span>
+                    <input type="date" required name="naissance" value="<?php echo $naissance ?>" class="form-control">
+                </div>
+                <br>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text">Promotion X</span>
+                    <input type="number" name="promotion" value="<?php echo $promotion ?>" placeholder="2019" class="form-control">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Mot de passe</span>
+                        <input type="password" required name="password1" placeholder="1234" class="form-control">
+                    <span class="input-group-text">Confirmer le mot de passe</span>
+                    <input type="password" name="password2" placeholder="1234" class="form-control">
+                </div>
+                <div class="my-1">
+                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon03">Créer Compte</button>
+                </div>
+            </form>
+        </div>
 
         <?php
     } else {
