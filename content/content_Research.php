@@ -28,7 +28,7 @@
                     <p class="text-center"> <a class="bolien" href="index.php?page=Recette&recette='.htmlspecialchars($element["id"]).'">Voir plus</a> </p>
                 </div>
                 <div class="col-4">
-                    <p>'.htmlspecialchars($element["description"]).'</p>
+                    <p>'.str_replace(array("\r\n","\n"),'<br />',htmlspecialchars($element["description"])).'</p>
                 </div>
                 <div class="col-4">
                     <a href="index.php?page=Recette&recette='.$element["id"].'">

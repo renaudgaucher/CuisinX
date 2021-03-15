@@ -18,7 +18,7 @@ $dbh=null;
             ?>
         </select>
     </div>
-    <div class="col-md-4 mb-3"><label> Quantité </label> : <input class="form-control" type="text" name="quantites[]"/></div>
+    <div class="col-md-4 mb-3"><label> Quantité </label> : <input class="form-control" type="number" name="quantites[]"/></div>
     <div class="col-md-4 mb-3"><label> Unité </label> : <input class="form-control" type="text" name="unites[]"/></div>
 </div>
 
