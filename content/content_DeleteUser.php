@@ -1,8 +1,8 @@
 
 
 
-<div class="jumbotron">
-    <h1 class="display-4">Se désinscrire</h1>
+<div class="jumbotron py-5 shadow p-3 mb-5 rounded">
+    <h2 class="display-4 bo">Se désinscrire</h2>
     <hr class="my-4">
 
 

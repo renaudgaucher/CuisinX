@@ -148,7 +148,6 @@ function generateMenu($pageName,$askedPage) {
                 </div>
                 <div class="col-md-0">
                     <ul class="navbar-nav mr-auto">
-                        <br>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?recherche=Végétarien">Végétarien</a>
                         </li>
@@ -189,7 +188,7 @@ function generateHTMLHeader($title, $link) {
             <script src='js/jquery.min.js'></script>
             <script src='js/popper.min.js'></script>
             <script src='js/bootstrap.min.js'></script>
-            <script type="text/javascript" src="js/code.js"></script>
+            <script src="js/code.js"></script>
             <!-- Mon CSS Perso -->
             <link href='css/$link' rel='stylesheet'>
             <link rel="icon" type="image/jpg" href="pictures/toque.jpg">
