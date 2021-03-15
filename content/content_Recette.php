@@ -86,8 +86,8 @@ function getContent($args){
                 <div class="col-md-3 ">
                     <h4 class="display-4" align="center"> Ingrédients </h4>
                     <br/>
-                    <label for="customRange2" class="form-label" id="disp_nb_personne">Nombre de personnes : 1</label>
-                    <input type="range" class="range" min="1" max="20" name="nb_personne" value="1" required/>
+                    <label for="customRange2" class="form-label" id="disp_nb_personne">Nombre de personnes : <?php echo "$recette->nb_personne" ?></label>
+                    <input type="range" class="range" min="1" max="20" name="nb_personne" value="<?php echo "$recette->nb_personne" ?>" required/>
                     <output></output>
                     <?php
                     echo "<ul id='li_ingredient'>";
