@@ -14,7 +14,7 @@ FIN;
         <h2 class="text-center">Bonjour <?php echo $_SESSION['prenom']?> </h2>
         <br>
         <form class="form-inline" action = "index.php?page=Accueil" method = "post">
-            <div class="input-group" style="margin:auto; max:500px">
+            <div class="input-group" style="margin:auto;">
             <div class="container-fluid">
                 <br>
                 <button type="submit" class="btn btn-outline-success">Retour à l'Accueil</button>
@@ -38,7 +38,7 @@ FIN;
         <h2 class="text-center">Connecte-toi !</h2>
         <br>
         <form class="form-inline" action = "index.php?todo=login&page=Login" method = "post">
-            <div class="input-group" style="margin:auto; max:500px">
+            <div class="input-group" style="margin:auto;">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-5">
