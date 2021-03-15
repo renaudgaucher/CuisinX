@@ -24,7 +24,7 @@ else{
         return false;
     }
     foreach ($recette->liste_ingredient as $ingredient) {
-        echo "<li>".($ingredient->quantite *$nb_personne/$nb_personne_theorique)." $ingredient->unite " . Ingredient::id_to_nomIngredient($dbh, $ingredient->id_ingredient)['nom'] . "</li>";
+        echo "<li>".($ingredient->quantite *$nb_personne/$nb_personne_theorique)." ".htmlspecialchars("$ingredient->unite"). " " . htmlspecialchars(Ingredient::id_to_nomIngredient($dbh, $ingredient->id_ingredient)['nom']) . "</li>";
     }
     $dbh=null;
 }
