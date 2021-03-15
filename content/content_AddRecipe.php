@@ -64,40 +64,37 @@ function getContent($args) {
                     if ($insert) {
                         $recipe = Recette::getRecetteByName($dbh, $_POST['nom_plat']);
                         if (move_uploaded_file($_FILES['photo']['tmp_name'], "pictures/recette" . $recipe->id . ".jpg")) {
-                            echo "upload de la photo réussi";
+                            //echo "upload de la photo réussi";
                             $path = "pictures/recette" . $recipe->id . ".jpg";
                             Recette::changerImage($dbh, $recipe->id, $path);
                             $form_values_valid = true;
                         } else {
-                            echo "<h2 style='margine:auto;max-width:300px'>upload de la photo échoué </h2>";
+                            echo "<h2 class='text-center'>upload de la photo échoué </h2>";
                         }
                     }
                 } else
-                    echo "<h2 style='margine:auto;max-width:300px'> mauvais type de fichier </h2>";
+                    echo "<h2 class='text-center'> mauvais type de fichier </h2>";
             }
         }
         if ($form_values_valid && count($_POST['ingredients']) == count($_POST['quantites']) && count($_POST['ingredients']) == count($_POST['unites'])) {
             for ($i = 0; $i < count($_POST['ingredients']); $i++) {
                 if (!Ingredient::insererIngredientRecette($dbh, $_POST['ingredients'][$i], $recipe->id, $_POST['quantites'][$i], $_POST['unites'][$i])) {
-                    echo "ingredient invalide!";
+                    echo "<h2 class='text-center'>ingredient invalide!</h2>";
                     $form_value_valid = false;
                 }
             }
         }
-        else{
-            echo "<h2 style='margine:auto;max-width:300px'> Erreur dans la soumission du fichier </h2>";
-        }
     if (!$form_values_valid) {
-        if(!isset($_POST["nom_plat"]) && !$_POST["nom_plat"] != "") echo "<h2 style='margine:auto;max-width:300px'> Nom du plat manquant </h2>";
-        if(!isset($_POST["description"]) && !$_POST["description"] != "") echo "<h2 style='margine:auto;max-width:300px'> Description vide </h2>";
-        if(!isset($_POST["consigne"]) && !$_POST["consigne"] != "") echo "<h2 style='margine:auto;max-width:300px'> Consigne manquante </h2>";
-        if(!isset($_POST["difficulte"]) && !ctype_digit($_POST["difficulte"]) && $_POST["difficulte"] < 4 && $_POST["difficulte"] > 0) echo "<h2 style='margine:auto;max-width:300px'> Difficulté invalide </h2>";
-        if(!isset($_POST["nb_personne"]) && !ctype_digit($_POST["nb_personne"])) echo "<h2 style='margine:auto;max-width:300px'> Nombre de personne invalide </h2>";
-        if(!isset($_POST["temps_cuisson"]) && !is_numeric($_POST["temps_cuisson"])) echo "<h2 style='margine:auto;max-width:300px'> Temps de cuisson invalide </h2>";
-        if(!isset($_POST["temps_preparation"]) && !is_numeric($_POST["temps_preparation"])) echo "<h2 style='margine:auto;max-width:300px'> Temps de préparation invalide </h2>";
-        if(!isset($_POST["contenu"]) && !ctype_digit($_POST["contenu"])) echo "<h2 style='margine:auto;max-width:300px'> Type de contenu invalide </h2>";
-        if(!isset($_POST["type"]) && !ctype_digit($_POST["type"])) echo "<h2 style='margine:auto;max-width:300px'> Type de plat invalide </h2>";
-        if(!isset($_POST["ingredients"]) || !isset($_POST["quantites"]) || !isset($_POST["unites"])) echo "<h2 style='margine:auto;max-width:300px'> Vous n'avez pas choisi d'ingrédient </h2>";
+        if(!isset($_POST["nom_plat"]) || !$_POST["nom_plat"] != "") echo "<h2 class='text-center'> Nom du plat manquant </h2>";
+        if(!isset($_POST["description"]) || !$_POST["description"] != "") echo "<h2 class='text-center'> Description vide </h2>";
+        if(!isset($_POST["consigne"]) || !$_POST["consigne"] != "") echo "<h2 class='text-center'> Consigne manquante </h2>";
+        if(!isset($_POST["difficulte"]) || !ctype_digit($_POST["difficulte"]) && $_POST["difficulte"] < 4 && $_POST["difficulte"] > 0) echo "<h2 class='text-center'> Difficulté invalide </h2>";
+        if(!isset($_POST["nb_personne"]) || !ctype_digit($_POST["nb_personne"])) echo "<h2 class='text-center'> Nombre de personne invalide </h2>";
+        if(!isset($_POST["temps_cuisson"]) || !is_numeric($_POST["temps_cuisson"])) echo "<h2 class='text-center'> Temps de cuisson invalide </h2>";
+        if(!isset($_POST["temps_preparation"]) || !is_numeric($_POST["temps_preparation"])) echo "<h2 class='text-center'> Temps de préparation invalide </h2>";
+        if(!isset($_POST["contenu"]) || !ctype_digit($_POST["contenu"])) echo "<h2 class='text-center'> Type de contenu invalide </h2>";
+        if(!isset($_POST["type"]) || !ctype_digit($_POST["type"])) echo "<h2 class='text-center'> Type de plat invalide </h2>";
+        if(!isset($_POST["ingredients"]) || !isset($_POST["quantites"]) || !isset($_POST["unites"])) echo "<h2 class='text-center'> Vous n'avez pas choisi d'ingrédient </h2>";
         if(isset($_POST["ingredients"]) && isset($_POST["quantites"]) && isset($_POST["unites"])){
             $res = true;
             foreach ($_POST["ingredients"] as $ingredient) {
@@ -106,7 +103,7 @@ function getContent($args) {
             foreach ($_POST["quantites"] as $quantite) {
                 $res = $res && is_numeric($quantite);
             }
-            if(!$res) echo "<h2 style='margine:auto;max-width:300px'> Liste d'ingrédient invalide ! </h2>";
+            if(!$res) echo "<h2 class='text-center'> Liste d'ingrédient invalide ! </h2>";
         }
     }
     }
