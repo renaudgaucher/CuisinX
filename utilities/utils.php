@@ -116,7 +116,7 @@ function generateMenu($pageName,$askedPage) {
 <?php
     
             if(isset($_SESSION["loggedIn"]) and $_SESSION["loggedIn"]) {
-                printLogoutForm($askedPage);
+                printLogoutLink($askedPage);
             } else {
                 printLoginLink($askedPage);
             }
