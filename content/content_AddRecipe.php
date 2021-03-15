@@ -98,6 +98,8 @@ function getContent($args) {
             $nom_plat = "";
         if (isset($_POST["consigne"]))
             $consigne = htmlspecialchars($_POST["consigne"]);
+        if (isset($_POST["description"]))
+            $description = htmlspecialchars($_POST["description"]);
         else
             $consigne = "";
         ?>
@@ -150,7 +152,7 @@ function getContent($args) {
                             <div class="input-group" id="nvlIngr">
                                 <span class="input-group-text">Créer un nouvel ingrédient</span>
                                 <input class="form-control" id="create_ingredient"/> 
-                                <button class="btn btn-outline-success" type="button" id="btn_create_ingredient">Créer</button>
+                                <button class="btn btn-outline-success" type="submit" id="btn_create_ingredient">Créer</button>
                             </div>
                         </div>
                     </div>

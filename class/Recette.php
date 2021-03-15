@@ -16,7 +16,7 @@ class Recette{
     public $nb_personne;
     public $liste_ingredient;
     
-    public function __construct(int $id,string $nom_plat,string $createur,int $id_contenu,int $id_type,string $image,string $consigne,int $id_difficulte,int $temps_cuisson, int $temps_preparation, int $nb_personne){
+    public function __construct(int $id,string $nom_plat,string $createur,int $id_contenu,int $id_type,string $image,string $consigne,int $id_difficulte,int $temps_cuisson, int $temps_preparation,string $description, int $nb_personne){
         $this->id = $id;
         $this->nom_plat = $nom_plat;
         $this->createur = $createur;
@@ -27,6 +27,7 @@ class Recette{
         $this->consigne = $consigne;
         $this->temps_cuisson = $temps_cuisson;
         $this->temps_preparation = $temps_preparation;
+        $this->description = $description;
         $this->nb_personne=$nb_personne;
         $this->liste_ingredient =[];
     }
@@ -47,7 +48,7 @@ class Recette{
             if ($recette_li['image']===Null){ $recette_li['image'] ="pictures/photo2.jpg";}
             if ($recette_li['temps_cuisson']===Null){ $recette_li['temps_cuisson'] =0;}
             $recette = new Recette($recette_li['id'],$recette_li['nom_plat'],$recette_li['createur'],$recette_li['id_contenu'],$recette_li['id_type'],$recette_li['image'],$recette_li['consigne'],
-                                $recette_li['id_difficulte'],$recette_li['temps_cuisson'],$recette_li['temps_preparation'],$recette_li['nb_personne']);
+                                $recette_li['id_difficulte'],$recette_li['temps_cuisson'],$recette_li['temps_preparation'],$recette_li['description'],$recette_li['nb_personne']);
             
             $query = "SELECT * FROM ingredient_recette WHERE id_recette=$recette->id";
             $sth = $dbh->prepare($query);
@@ -85,7 +86,7 @@ class Recette{
             if ($recette_li['image']===Null){ $recette_li['image'] ="pictures/photo2.jpg";}
             if ($recette_li['temps_cuisson']===Null){ $recette_li['temps_cuisson'] =0;}
             $recette = new Recette($recette_li['id'],$recette_li['nom_plat'],$recette_li['createur'],$recette_li['id_contenu'],$recette_li['id_type'],$recette_li['image'],$recette_li['consigne'],
-                                $recette_li['id_difficulte'],$recette_li['temps_cuisson'],$recette_li['temps_preparation'],$recette_li['nb_personne']);
+                                $recette_li['id_difficulte'],$recette_li['temps_cuisson'],$recette_li['temps_preparation'],$recette_li['description'],$recette_li['nb_personne']);
             
             $query = "SELECT * FROM ingredient_recette WHERE id_recette=$recette->id";
             $sth = $dbh->prepare($query);
@@ -156,6 +157,8 @@ class Recette{
         $recette->nom_plat = htmlspecialchars($recette->nom_plat);
         $recette->createur = htmlspecialchars($recette->createur);
         $recette->consigne = htmlspecialchars($recette->consigne);
+        $recette->consigne=str_replace(array("\r\n","\n"),'<br />',$recette->consigne);
+        $recette->description=str_replace(array("\r\n","\n"),'<br />',$recette->description);
         foreach($recette->liste_ingredient as $ingredient){
             $ingredient->nom_ingredient=htmlspecialchars($ingredient->nom_ingredient);
             $ingredient->unite=htmlspecialchars($ingredient->unite);
