@@ -16,7 +16,7 @@ function getContent($args) {
     $liste_recettes = Utilisateur::getMyRecettes($dbh, $login);
     ?>
 
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center shadow p-3 mb-5 rounded">
         <h1 style="font-size: 60px; color: #244b20;"><?php echo htmlspecialchars("$utilisateurs->prenom") ?> <?php echo htmlspecialchars("$utilisateurs->nom") ?></h1>
         <hr class="my-4">
         <span>Pseudo : <?php echo htmlspecialchars("$utilisateurs->login") ?></span>
@@ -36,7 +36,7 @@ function getContent($args) {
     
 
     <div class="jumbotron text-center">
-        <h2 style="font-size: 60px; color: #244b20;">Mes Recettes</h2>
+        <h2 class="text-center botexte">Mes Recettes</h2>
     <?php
     foreach($liste_recettes as $recette){
         echo '<div class="row shadow p-3 mb-5 bg-white rounded align-items-center" style="margin: 3%">
@@ -48,6 +48,11 @@ function getContent($args) {
                     <a href="index.php?page=Recette&recette='.$recette["id"].'">
                     <img src='.$recette["image"].' alt="Image" width="100%">
                     </a>
+                </div>
+                <div class="col-4 text-center">
+                    <p style="font-style:italic">Temps de cuisson : '.htmlspecialchars($recette["temps_cuisson"]).' min</p>
+                    <p style="font-style:italic">Temps de préparation : '.htmlspecialchars($recette["temps_preparation"]).' min</p>
+                    <p style="font-style:italic">Difficulté : '.htmlspecialchars(Difficulte::id_to_nomDifficulte($dbh, ($recette["id_difficulte"]))).'</p>
                 </div>
             </div>';
     }

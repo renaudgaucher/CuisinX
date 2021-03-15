@@ -94,7 +94,7 @@ function getContent($args) {
                     <br>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Mot de passe</span>
-                            <input type="password" required name="password1" placeholder="1234 class="form-control">
+                            <input type="password" required name="password1" placeholder="1234" class="form-control">
                         <span class="input-group-text">Confirmer le mot de passe</span>
                         <input type="password" name="password2" placeholder="1234" class="form-control">
                     </div>
