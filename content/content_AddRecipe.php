@@ -38,8 +38,8 @@ function getContent($args) {
                 isset($_POST["consigne"]) && $_POST["consigne"] != "" &&
                 isset($_POST["difficulte"]) && ctype_digit($_POST["difficulte"]) && $_POST["difficulte"] < 4 && $_POST["difficulte"] > 0 &&
                 isset($_POST["nb_personne"]) && ctype_digit($_POST["nb_personne"]) &&
-                isset($_POST["temps_cuisson"]) && ctype_digit($_POST["temps_cuisson"]) &&
-                isset($_POST["temps_preparation"]) && ctype_digit($_POST["temps_preparation"]) &&
+                isset($_POST["temps_cuisson"]) && is_numeric($_POST["temps_cuisson"]) &&
+                isset($_POST["temps_preparation"]) && is_numeric($_POST["temps_preparation"]) &&
                 isset($_POST["nb_personne"]) && ctype_digit($_POST["nb_personne"]) &&
                 isset($_POST["contenu"]) && ctype_digit($_POST["contenu"]) &&
                 isset($_POST["type"]) && ctype_digit($_POST["type"]) &&
@@ -74,7 +74,7 @@ function getContent($args) {
                         }
                     }
                 } else
-                    echo "mauvais type de fichier";
+                    echo "<h2 style='margine:auto;max-width:300px'> mauvais type de fichier </h2>";
             }
         }
         if ($form_values_valid && count($_POST['ingredients']) == count($_POST['quantites']) && count($_POST['ingredients']) == count($_POST['unites'])) {
