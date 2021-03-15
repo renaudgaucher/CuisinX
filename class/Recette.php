@@ -151,5 +151,16 @@ class Recette{
         $sth = $dbh->prepare("UPDATE `recettes` SET `image`=? WHERE `id`=?;");
         return $sth->execute(array($path,$id));
     }
+    
+    public static function autoHtmlspecialchars(Recette $recette){
+        $recette->nom_plat = htmlspecialchars($recette->nom_plat);
+        $recette->createur = htmlspecialchars($recette->createur);
+        $recette->consigne = htmlspecialchars($recette->consigne);
+        foreach($recette->liste_ingredient as $ingredient){
+            $ingredient->nom_ingredient=htmlspecialchars($ingredient->nom_ingredient);
+            $ingredient->unite=htmlspecialchars($ingredient->unite);
+        }
+        return $recette;
+    }
       
 }
