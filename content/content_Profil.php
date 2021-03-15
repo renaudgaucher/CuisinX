@@ -33,6 +33,10 @@ function getContent($args) {
         
 
     </div>
+    
+
+    <div class="jumbotron text-center">
+        <h2 style="font-size: 60px; color: #244b20;">Mes Recettes</h2>
     <?php
     echo'<h2 class="text-center botexte">Mes recettes publiées</h2>';
     foreach($liste_recettes as $recette){
@@ -40,9 +44,6 @@ function getContent($args) {
                 <div class="col-4 text-center">
                     <h3>'.htmlspecialchars($recette["nom_plat"]).'</h3>
                     <p> <a class="bolien" href="index.php?page=Recette&recette='.htmlspecialchars($recette["id"]).'">Voir plus</a> </p>
-                </div>
-                <div class="col-4">
-                    <p>'.htmlspecialchars($recette["description"]).'</p>
                 </div>
                 <div class="col-4">
                     <a href="index.php?page=Recette&recette='.$recette["id"].'">
@@ -53,7 +54,7 @@ function getContent($args) {
     }
     
     ?>
-   
+    </div>
 
 
 

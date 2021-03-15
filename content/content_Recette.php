@@ -21,7 +21,6 @@ function getContent($args){
     $recette = Recette::autoHtmlspecialchars($recette);
     //var_dump($recette->image) ;
     //$recette->autoHtmlspecialchars();
-    var_dump($_POST);
     
     if(isset($_POST) && isset($_POST["delete"]) && $_POST["delete"]=="SUPPRIMER RECETTE"&&
             session_status()==PHP_SESSION_ACTIVE && isset($_SESSION['login']) && Utilisateur::getUtilisateur($dbh, $_SESSION['login'])->admin==1){
