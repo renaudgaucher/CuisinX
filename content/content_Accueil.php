@@ -25,18 +25,18 @@ echo '<div class="jumbotron shadow p-3 mb-5 rounded">
     <div class="cat col-md-auto text-center">
         <h2 style="font-size: 25px; color: #244b20">Recettes aléatoires</h2>
         <br>
-        <div class="row align-items-center" style="margin:auto; max-width:1000px">
-            <div class="col-md-2">
+        <div class="row align-items-center" style="margin:auto; max-width:1200px">
+            <div class="col-md-2 align-items-center">
                 <a class="bolien" href="index.php?page=Recette&recette='.$recette1->id.'">'.$recette1->nom_plat.'</a>
                 <img src="'.$recette1->image.'" style="width:200px" alt="'.$recette1->nom_plat.'">
             </div>
 
-            <div class="col-md-2 ml-auto">
+            <div class="col-md-2 ml-auto align-items-center">
                 <a class="bolien" href="index.php?page=Recette&recette='.$recette2->id.'">'.$recette2->nom_plat.'</a>
                 <img src="'.$recette2->image.'" style="width:200px" alt="'.$recette2->nom_plat.'">
             </div>
 
-            <div class="col-md-2 ml-auto">
+            <div class="col-md-2 ml-auto align-items-center">
                 <a class="bolien" href="index.php?page=Recette&recette='.$recette3->id.'">'.$recette3->nom_plat.'</a>
                 <img src="'.$recette3->image.'" style="width:200px" alt="'.$recette3->nom_plat.'">
             </div>
