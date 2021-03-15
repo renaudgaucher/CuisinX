@@ -18,6 +18,7 @@ $(document).ready(function(){
     $("#btn_create_ingredient").click(function(){
         var nvlIngredient = $("#create_ingredient").val();
         $.post("scripts/newIngredient.php",{nom_ingredient:nvlIngredient},function(){
+            location.reload();
             console.log(nvlIngredient);
         });
     });

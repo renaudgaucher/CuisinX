@@ -115,12 +115,12 @@ function getContent($args) {
                     <p> <label> Photo </label> : <input class="form-control-file" type="file" name="photo" placeholder="photo.jpg" required/> </p>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Description</span>
-                        <textarea class="form-control" name="description" required></textarea>
+                        <textarea class="form-control" name="description" value='<?php$description?>' required></textarea>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Consignes</span>
-                        <textarea class="form-control" name="consigne" required></textarea>
+                        <textarea class="form-control" name="consigne" value='<?php$consigne?>' required></textarea>
                     </div>
 
                     <label for="customRange2" class="form-label" id="disp_nb_personne">Nombre de personnes : 1</label>
@@ -152,7 +152,7 @@ function getContent($args) {
                             <div class="input-group" id="nvlIngr">
                                 <span class="input-group-text">Créer un nouvel ingrédient</span>
                                 <input class="form-control" id="create_ingredient"/> 
-                                <button class="btn btn-outline-success" type="submit" id="btn_create_ingredient">Créer</button>
+                                <button class="btn btn-outline-success" type="button" id="btn_create_ingredient">Créer</button>
                             </div>
                         </div>
                     </div>
@@ -183,14 +183,14 @@ function getContent($args) {
                                 <div class="col-sm-5 offset-md-1 ">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Temps de cuisson</span>
-                                        <input class="form-control" type="int" name="temps_cuisson" required/> 
+                                        <input class="form-control" type="number" name="temps_cuisson" required/> 
                                         <span class="input-group-text">min</span>
                                     </div>
                                 </div>
                                 <div class="col-sm-5 ">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Temps de préparation</span>
-                                        <input class="form-control" type="int" name="temps_preparation" required/> 
+                                        <input class="form-control" type="number" name="temps_preparation" required/> 
                                         <span class="input-group-text">min</span>
                                     </div>
                                 </div>
