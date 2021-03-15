@@ -130,7 +130,7 @@ function generateMenu($pageName,$askedPage) {
                 <div class="col-md-4">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" style="font-weight:bold" href="index.php?page=Categorie">Catégories<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" style="font-weight:bold" href="index.php?page=Accueil">Catégories<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?recherche=Entrée">Entrée</a>
