@@ -109,18 +109,18 @@ function getContent($args) {
                 <form action="index.php?page=AddRecipe&todo=addRecipe" method="post" enctype="multipart/form-data">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Nom de la recette</span>
-                        <input class="form-control" type="text" name="nom_plat" value="<?php echo $nom_plat ?>" required/>
+                        <input class="form-control" type="text" name="nom_plat" value="<?php echo $nom_plat; ?>" required/>
                     </div>
 
                     <p> <label> Photo </label> : <input class="form-control-file" type="file" name="photo" placeholder="photo.jpg" required/> </p>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Description</span>
-                        <textarea class="form-control" name="description" value='<?php $description ?>' required></textarea>
+                        <textarea class="form-control" name="description" value='<?php echo $description; ?>' required></textarea>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Consignes</span>
-                        <textarea class="form-control" name="consigne" value='<?php $consigne ?>' required></textarea>
+                        <textarea class="form-control" name="consigne" value='<?php echo $consigne; ?>' required></textarea>
                     </div>
 
                     <label for="customRange2" class="form-label" id="disp_nb_personne">Nombre de personnes : 1</label>
