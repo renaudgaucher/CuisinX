@@ -16,7 +16,7 @@ function getContent($args) {
     $liste_recettes = Utilisateur::getMyRecettes($dbh, $login);
     ?>
 
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center shadow p-3 mb-5 rounded">
         <h1 style="font-size: 60px; color: #244b20;"><?php echo htmlspecialchars("$utilisateurs->prenom") ?> <?php echo htmlspecialchars("$utilisateurs->nom") ?></h1>
         <hr class="my-4">
         <span>Pseudo : <?php echo htmlspecialchars("$utilisateurs->login") ?></span>
@@ -34,6 +34,7 @@ function getContent($args) {
 
     </div>
     <?php
+    echo'<h2 class="text-center botexte">Mes recettes publiées</h2>';
     foreach($liste_recettes as $recette){
         echo '<div class="row shadow p-3 mb-5 bg-white rounded align-items-center" style="margin: 3%">
                 <div class="col-4 text-center">
