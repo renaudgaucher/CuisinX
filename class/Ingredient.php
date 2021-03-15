@@ -77,9 +77,9 @@ class Ingredient{
     }
     
     public static function insererIngredientRecette($dbh,$nom_ingredient,$id_recette,$quantite,$unite) {
-        $id_ingredient = Ingredient::nomIngredient_to_id($dbh,$nom_ingredient);
+        
         $sth = $dbh->prepare("INSERT INTO `ingredient_recette` (`id_ingredient`,`id_recette`,`quantite`,`unite`) VALUES(?,?,?,?)");
-        return $sth->execute(array($id_ingredient['id'],$id_recette,$quantite,$unite));
+        return $sth->execute(array($nom_ingredient,$id_recette,$quantite,$unite));
     }
     
     public static function nouvelIngredient($dbh, $nom) {
